@@ -9,6 +9,8 @@
 	</dict>
 	<key>UIAppFonts</key>
 	<array>
+		<string>Circe-Light.ttf</string>
+		<string>Circe-Bold.ttf</string>
 		<string>Circe-Regular.ttf</string>
 	</array>
 	<key>UIApplicationSceneManifest</key>
