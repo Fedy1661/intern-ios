@@ -17,7 +17,7 @@ final class Fetcher {
         fetch(CamerasResponse.self, url: camerasUrl, response: response)
     }
     
-    func fecthDoors (response: @escaping (DoorsResponse?) -> Void) {
+    func fetchDoors (response: @escaping (DoorsResponse?) -> Void) {
         fetch(DoorsResponse.self, url: doorsUrl, response: response)
     }
     

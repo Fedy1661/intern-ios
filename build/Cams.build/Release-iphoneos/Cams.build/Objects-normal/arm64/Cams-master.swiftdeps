@@ -1,0 +1,13 @@
+version: "Apple Swift version 5.6.1 (swiftlang-5.6.0.323.66 clang-1316.0.20.12)"
+options: "917371b71035dca77f28e110fce9ffa1605297a5c6a0a78f0157ec977828f850"
+build_start_time: [1653386099, 602977991]
+build_end_time: [1653386102, 101740837]
+inputs:
+  "/Users/fdr/Downloads/Cams/Cams/AppDelegate.swift": [1653191443, 0]
+  "/Users/fdr/Downloads/Cams/Cams/Models/Cameras.swift": [1653285480, 0]
+  "/Users/fdr/Downloads/Cams/Cams/Models/Doors.swift": [1653285480, 0]
+  "/Users/fdr/Downloads/Cams/Cams/Networking/Fetcher.swift": [1653373706, 792166709]
+  "/Users/fdr/Downloads/Cams/Cams/Networking/Service.swift": [1653281575, 0]
+  "/Users/fdr/Downloads/Cams/Cams/Networking/TableView.swift": [1653373465, 1786470]
+  "/Users/fdr/Downloads/Cams/Cams/SceneDelegate.swift": [1653191443, 0]
+  "/Users/fdr/Downloads/Cams/Cams/ViewController.swift": [1653373964, 672907114]

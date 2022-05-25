@@ -29,6 +29,18 @@ class ViewController: UIViewController {
     
     @IBAction func didTapDoors(_ sender: Any) {
         self.signifierLeading.constant = self.signifier.frame.width
+        fetcher.fetchDoors { doors in
+            guard let doors = doors else { return }
+            
+            self.tableView.items.removeAll()
+            doors.data.forEach({ door in
+                print(door)
+                self.tableView.items.append(.init(data: EntranceCell.Model(title: door.name), identifier: "EntranceCell"))
+                self.tableView.items.append(.init(data: DoorphoneCell.Model(title: door.name, subTitle: door.name, favorite: door.favorites), identifier: "DoorphoneCell"))
+            })
+            
+            self.tableView.reloadData()
+        }
     }
     
 }

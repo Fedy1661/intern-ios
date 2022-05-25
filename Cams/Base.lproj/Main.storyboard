@@ -116,15 +116,13 @@
                                                             <subviews>
                                                                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="visual" translatesAutoresizingMaskIntoConstraints="NO" id="NBH-gl-Trj">
                                                                     <rect key="frame" x="0.0" y="0.0" width="333" height="207"/>
+                                                                    <constraints>
+                                                                        <constraint firstAttribute="height" constant="207" id="SOl-Jk-2n7"/>
+                                                                    </constraints>
                                                                 </imageView>
-                                                                <view alpha="0.59999999999999998" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="bfo-Y8-EDF">
+                                                                <view clipsSubviews="YES" alpha="0.59999999999999998" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="bfo-Y8-EDF">
                                                                     <rect key="frame" x="0.0" y="0.0" width="333" height="207"/>
                                                                     <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                                    <userDefinedRuntimeAttributes>
-                                                                        <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
-                                                                            <integer key="value" value="15"/>
-                                                                        </userDefinedRuntimeAttribute>
-                                                                    </userDefinedRuntimeAttributes>
                                                                 </view>
                                                                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="play button" translatesAutoresizingMaskIntoConstraints="NO" id="eS6-Mc-OUr">
                                                                     <rect key="frame" x="136.66666666666666" y="73.666666666666671" width="60" height="60.000000000000014"/>
@@ -162,25 +160,20 @@
                                                             </subviews>
                                                             <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                                             <constraints>
-                                                                <constraint firstItem="bfo-Y8-EDF" firstAttribute="bottom" secondItem="NBH-gl-Trj" secondAttribute="bottom" id="0R9-0Q-vHc"/>
                                                                 <constraint firstItem="hu7-F7-70G" firstAttribute="top" secondItem="5RL-jM-C3y" secondAttribute="top" constant="14" id="4WX-qt-eAG"/>
                                                                 <constraint firstItem="QeQ-c4-LJ8" firstAttribute="top" secondItem="5RL-jM-C3y" secondAttribute="top" constant="5" id="9RS-4O-Y9m"/>
+                                                                <constraint firstItem="bfo-Y8-EDF" firstAttribute="centerX" secondItem="eS6-Mc-OUr" secondAttribute="centerX" id="Gss-pg-CZ7"/>
                                                                 <constraint firstItem="bfo-Y8-EDF" firstAttribute="leading" secondItem="5RL-jM-C3y" secondAttribute="leading" id="L5f-mC-WwF"/>
-                                                                <constraint firstItem="eS6-Mc-OUr" firstAttribute="centerX" secondItem="NBH-gl-Trj" secondAttribute="centerX" id="LUQ-P5-r3U"/>
                                                                 <constraint firstItem="bfo-Y8-EDF" firstAttribute="top" secondItem="5RL-jM-C3y" secondAttribute="top" id="Lu4-ZU-SPE"/>
                                                                 <constraint firstAttribute="trailing" secondItem="bfo-Y8-EDF" secondAttribute="trailing" id="P3B-1J-ELg"/>
-                                                                <constraint firstItem="NBH-gl-Trj" firstAttribute="top" secondItem="5RL-jM-C3y" secondAttribute="top" id="PKl-ac-D6c"/>
-                                                                <constraint firstAttribute="trailing" secondItem="NBH-gl-Trj" secondAttribute="trailing" id="UEw-62-yBo"/>
+                                                                <constraint firstAttribute="trailing" secondItem="NBH-gl-Trj" secondAttribute="trailing" id="Yy5-jE-DHr"/>
                                                                 <constraint firstItem="hu7-F7-70G" firstAttribute="leading" secondItem="5RL-jM-C3y" secondAttribute="leading" constant="11" id="crS-a6-zkm"/>
-                                                                <constraint firstItem="eS6-Mc-OUr" firstAttribute="centerY" secondItem="NBH-gl-Trj" secondAttribute="centerY" id="qDX-8m-Occ"/>
+                                                                <constraint firstItem="NBH-gl-Trj" firstAttribute="top" secondItem="5RL-jM-C3y" secondAttribute="top" id="oUH-en-CDS"/>
+                                                                <constraint firstItem="bfo-Y8-EDF" firstAttribute="bottom" secondItem="NBH-gl-Trj" secondAttribute="bottom" id="oY5-x8-1Oi"/>
+                                                                <constraint firstItem="bfo-Y8-EDF" firstAttribute="centerY" secondItem="eS6-Mc-OUr" secondAttribute="centerY" id="sh7-xP-A4m"/>
+                                                                <constraint firstItem="NBH-gl-Trj" firstAttribute="leading" secondItem="5RL-jM-C3y" secondAttribute="leading" id="tVi-hd-rGA"/>
                                                                 <constraint firstAttribute="trailing" secondItem="QeQ-c4-LJ8" secondAttribute="trailing" constant="5" id="zAh-Bj-8Ee"/>
-                                                                <constraint firstItem="NBH-gl-Trj" firstAttribute="leading" secondItem="5RL-jM-C3y" secondAttribute="leading" id="zis-hO-brI"/>
                                                             </constraints>
-                                                            <userDefinedRuntimeAttributes>
-                                                                <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
-                                                                    <integer key="value" value="15"/>
-                                                                </userDefinedRuntimeAttribute>
-                                                            </userDefinedRuntimeAttributes>
                                                         </view>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NqW-9Z-Crl">
                                                             <rect key="frame" x="16" y="232.66666666666666" width="301" height="25.333333333333343"/>
@@ -202,11 +195,6 @@
                                                         <constraint firstItem="5RL-jM-C3y" firstAttribute="top" secondItem="FP9-F8-gbZ" secondAttribute="top" id="wi7-a3-46r"/>
                                                         <constraint firstItem="NqW-9Z-Crl" firstAttribute="leading" secondItem="FP9-F8-gbZ" secondAttribute="leading" constant="16" id="xmy-RF-bHD"/>
                                                     </constraints>
-                                                    <userDefinedRuntimeAttributes>
-                                                        <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
-                                                            <integer key="value" value="15"/>
-                                                        </userDefinedRuntimeAttribute>
-                                                    </userDefinedRuntimeAttributes>
                                                 </view>
                                             </subviews>
                                             <color key="backgroundColor" name="backgroundColor"/>
@@ -223,8 +211,11 @@
                                         </tableViewCellContentView>
                                         <color key="backgroundColor" name="backgroundColor"/>
                                         <connections>
+                                            <outlet property="blackout" destination="bfo-Y8-EDF" id="bq8-nw-Opg"/>
                                             <outlet property="favorite" destination="QeQ-c4-LJ8" id="NxE-AL-nqL"/>
+                                            <outlet property="maybeIt" destination="FP9-F8-gbZ" id="an6-ar-mOh"/>
                                             <outlet property="recording" destination="hu7-F7-70G" id="zYB-Vj-OCq"/>
+                                            <outlet property="snapshotImage" destination="NBH-gl-Trj" id="RE8-2m-g3Y"/>
                                             <outlet property="titleLabel" destination="NqW-9Z-Crl" id="rs7-sd-iDT"/>
                                         </connections>
                                     </tableViewCell>
