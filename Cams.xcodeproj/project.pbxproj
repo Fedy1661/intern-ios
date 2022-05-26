@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		210BA994283DFE2400D36609 /* InfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 210BA993283DFE2400D36609 /* InfoViewController.swift */; };
 		21B003822839EA9300E2A1BB /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21B003812839EA9300E2A1BB /* AppDelegate.swift */; };
 		21B003842839EA9300E2A1BB /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21B003832839EA9300E2A1BB /* SceneDelegate.swift */; };
 		21B003862839EA9300E2A1BB /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21B003852839EA9300E2A1BB /* ViewController.swift */; };
@@ -19,13 +18,17 @@
 		21FF6663283B428400FE7C25 /* Cameras.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21FF6662283B428400FE7C25 /* Cameras.swift */; };
 		21FF6666283B441600FE7C25 /* Doors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21FF6665283B441600FE7C25 /* Doors.swift */; };
 		21FF6668283B464400FE7C25 /* Fetcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21FF6667283B464400FE7C25 /* Fetcher.swift */; };
-		21FF666E283CAA8D00FE7C25 /* Circe-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 21FF666D283CAA8D00FE7C25 /* Circe-Light.ttf */; };
-		21FF6670283CAAA200FE7C25 /* Circe-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 21FF666F283CAAA200FE7C25 /* Circe-Bold.ttf */; };
+		CE1845B9283B957000F0194F /* Circe-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = CE1845B8283B957000F0194F /* Circe-Bold.ttf */; };
+		CE1845BB283B957900F0194F /* Circe-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = CE1845BA283B957900F0194F /* Circe-Light.ttf */; };
 		CE1845C5283BCBD500F0194F /* TableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE1845C4283BCBD500F0194F /* TableView.swift */; };
+		CE696AE5283E4BDA003AA970 /* CamCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE696AE4283E4BDA003AA970 /* CamCell.swift */; };
+		CE696AE7283E4C08003AA970 /* DoorphoneCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE696AE6283E4C08003AA970 /* DoorphoneCell.swift */; };
+		CE696AEA283E4C4A003AA970 /* EntranceCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE696AE9283E4C4A003AA970 /* EntranceCell.swift */; };
+		CEFF918A283E7A1B00C2F6B4 /* Realm in Frameworks */ = {isa = PBXBuildFile; productRef = CEFF9189283E7A1B00C2F6B4 /* Realm */; };
+		CEFF918C283E7A1B00C2F6B4 /* RealmSwift in Frameworks */ = {isa = PBXBuildFile; productRef = CEFF918B283E7A1B00C2F6B4 /* RealmSwift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		210BA993283DFE2400D36609 /* InfoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoViewController.swift; sourceTree = "<group>"; };
 		21B0037E2839EA9300E2A1BB /* Cams.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Cams.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		21B003812839EA9300E2A1BB /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		21B003832839EA9300E2A1BB /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -39,9 +42,12 @@
 		21FF6662283B428400FE7C25 /* Cameras.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Cameras.swift; sourceTree = "<group>"; };
 		21FF6665283B441600FE7C25 /* Doors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Doors.swift; sourceTree = "<group>"; };
 		21FF6667283B464400FE7C25 /* Fetcher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Fetcher.swift; sourceTree = "<group>"; };
-		21FF666D283CAA8D00FE7C25 /* Circe-Light.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Circe-Light.ttf"; sourceTree = "<group>"; };
-		21FF666F283CAAA200FE7C25 /* Circe-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Circe-Bold.ttf"; sourceTree = "<group>"; };
+		CE1845B8283B957000F0194F /* Circe-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Circe-Bold.ttf"; path = "../../../Circe-Bold.ttf"; sourceTree = "<group>"; };
+		CE1845BA283B957900F0194F /* Circe-Light.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Circe-Light.ttf"; path = "../../../Circe-Light.ttf"; sourceTree = "<group>"; };
 		CE1845C4283BCBD500F0194F /* TableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = TableView.swift; path = Networking/TableView.swift; sourceTree = "<group>"; };
+		CE696AE4283E4BDA003AA970 /* CamCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CamCell.swift; sourceTree = "<group>"; };
+		CE696AE6283E4C08003AA970 /* DoorphoneCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DoorphoneCell.swift; sourceTree = "<group>"; };
+		CE696AE9283E4C4A003AA970 /* EntranceCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EntranceCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -49,6 +55,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CEFF918C283E7A1B00C2F6B4 /* RealmSwift in Frameworks */,
+				CEFF918A283E7A1B00C2F6B4 /* Realm in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -83,13 +91,13 @@
 		21B003802839EA9300E2A1BB /* Cams */ = {
 			isa = PBXGroup;
 			children = (
+				CE696AE8283E4C13003AA970 /* Cells */,
 				21FF6664283B440A00FE7C25 /* Models */,
 				217EEF86283B415600E60FED /* Networking */,
 				21B003952839EC0300E2A1BB /* Fonts */,
 				21B003812839EA9300E2A1BB /* AppDelegate.swift */,
 				21B003832839EA9300E2A1BB /* SceneDelegate.swift */,
 				21B003852839EA9300E2A1BB /* ViewController.swift */,
-				210BA993283DFE2400D36609 /* InfoViewController.swift */,
 				CE1845C4283BCBD500F0194F /* TableView.swift */,
 				21B003872839EA9300E2A1BB /* Main.storyboard */,
 				21B0038A2839EA9400E2A1BB /* Assets.xcassets */,
@@ -102,8 +110,8 @@
 		21B003952839EC0300E2A1BB /* Fonts */ = {
 			isa = PBXGroup;
 			children = (
-				21FF666F283CAAA200FE7C25 /* Circe-Bold.ttf */,
-				21FF666D283CAA8D00FE7C25 /* Circe-Light.ttf */,
+				CE1845BA283B957900F0194F /* Circe-Light.ttf */,
+				CE1845B8283B957000F0194F /* Circe-Bold.ttf */,
 				21B003962839EDAC00E2A1BB /* Circe-Regular.ttf */,
 			);
 			path = Fonts;
@@ -116,6 +124,16 @@
 				21FF6665283B441600FE7C25 /* Doors.swift */,
 			);
 			path = Models;
+			sourceTree = "<group>";
+		};
+		CE696AE8283E4C13003AA970 /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				CE696AE6283E4C08003AA970 /* DoorphoneCell.swift */,
+				CE696AE4283E4BDA003AA970 /* CamCell.swift */,
+				CE696AE9283E4C4A003AA970 /* EntranceCell.swift */,
+			);
+			path = Cells;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -134,6 +152,10 @@
 			dependencies = (
 			);
 			name = Cams;
+			packageProductDependencies = (
+				CEFF9189283E7A1B00C2F6B4 /* Realm */,
+				CEFF918B283E7A1B00C2F6B4 /* RealmSwift */,
+			);
 			productName = Cams;
 			productReference = 21B0037E2839EA9300E2A1BB /* Cams.app */;
 			productType = "com.apple.product-type.application";
@@ -162,6 +184,9 @@
 				Base,
 			);
 			mainGroup = 21B003752839EA9300E2A1BB;
+			packageReferences = (
+				CEFF9188283E7A1B00C2F6B4 /* XCRemoteSwiftPackageReference "realm-swift" */,
+			);
 			productRefGroup = 21B0037F2839EA9300E2A1BB /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -176,11 +201,11 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				21FF6670283CAAA200FE7C25 /* Circe-Bold.ttf in Resources */,
+				CE1845B9283B957000F0194F /* Circe-Bold.ttf in Resources */,
 				21B0038E2839EA9400E2A1BB /* LaunchScreen.storyboard in Resources */,
 				21B0038B2839EA9400E2A1BB /* Assets.xcassets in Resources */,
 				21B003972839EDAC00E2A1BB /* Circe-Regular.ttf in Resources */,
-				21FF666E283CAA8D00FE7C25 /* Circe-Light.ttf in Resources */,
+				CE1845BB283B957900F0194F /* Circe-Light.ttf in Resources */,
 				21B003892839EA9300E2A1BB /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -194,10 +219,12 @@
 			files = (
 				21FF6668283B464400FE7C25 /* Fetcher.swift in Sources */,
 				21B003862839EA9300E2A1BB /* ViewController.swift in Sources */,
+				CE696AE5283E4BDA003AA970 /* CamCell.swift in Sources */,
 				21FF6661283B423400FE7C25 /* Service.swift in Sources */,
 				21B003822839EA9300E2A1BB /* AppDelegate.swift in Sources */,
-				210BA994283DFE2400D36609 /* InfoViewController.swift in Sources */,
 				21FF6666283B441600FE7C25 /* Doors.swift in Sources */,
+				CE696AEA283E4C4A003AA970 /* EntranceCell.swift in Sources */,
+				CE696AE7283E4C08003AA970 /* DoorphoneCell.swift in Sources */,
 				CE1845C5283BCBD500F0194F /* TableView.swift in Sources */,
 				21FF6663283B428400FE7C25 /* Cameras.swift in Sources */,
 				21B003842839EA9300E2A1BB /* SceneDelegate.swift in Sources */,
@@ -347,7 +374,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = H5CCX2A86G;
+				DEVELOPMENT_TEAM = B5Q8GJQL77;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Cams/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -362,7 +389,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.Cameras.Cams;
+				PRODUCT_BUNDLE_IDENTIFIER = fedy1661.cameras;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
@@ -377,7 +404,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = H5CCX2A86G;
+				DEVELOPMENT_TEAM = B5Q8GJQL77;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Cams/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -392,7 +419,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.Cameras.Cams;
+				PRODUCT_BUNDLE_IDENTIFIER = fedy1661.cameras;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
@@ -422,6 +449,30 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		CEFF9188283E7A1B00C2F6B4 /* XCRemoteSwiftPackageReference "realm-swift" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/realm/realm-swift.git";
+			requirement = {
+				branch = master;
+				kind = branch;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		CEFF9189283E7A1B00C2F6B4 /* Realm */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = CEFF9188283E7A1B00C2F6B4 /* XCRemoteSwiftPackageReference "realm-swift" */;
+			productName = Realm;
+		};
+		CEFF918B283E7A1B00C2F6B4 /* RealmSwift */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = CEFF9188283E7A1B00C2F6B4 /* XCRemoteSwiftPackageReference "realm-swift" */;
+			productName = RealmSwift;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 21B003762839EA9300E2A1BB /* Project object */;
 }

@@ -7,8 +7,8 @@
 
 import Foundation
 
-class Service {
-    func request(url: URL, completion: @escaping (Result<Data, Error>) -> Void) {
+final class Service {
+    static func request(url: URL, completion: @escaping (Result<Data, Error>) -> Void) {
         URLSession.shared.dataTask(with: url) { data, response, error in
             DispatchQueue.main.async {
                 if let error = error {
