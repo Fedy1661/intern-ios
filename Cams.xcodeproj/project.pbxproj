@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		210BA994283DFE2400D36609 /* InfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 210BA993283DFE2400D36609 /* InfoViewController.swift */; };
 		21B003822839EA9300E2A1BB /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21B003812839EA9300E2A1BB /* AppDelegate.swift */; };
 		21B003842839EA9300E2A1BB /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21B003832839EA9300E2A1BB /* SceneDelegate.swift */; };
 		21B003862839EA9300E2A1BB /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21B003852839EA9300E2A1BB /* ViewController.swift */; };
@@ -24,6 +25,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		210BA993283DFE2400D36609 /* InfoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoViewController.swift; sourceTree = "<group>"; };
 		21B0037E2839EA9300E2A1BB /* Cams.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Cams.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		21B003812839EA9300E2A1BB /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		21B003832839EA9300E2A1BB /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -87,6 +89,7 @@
 				21B003812839EA9300E2A1BB /* AppDelegate.swift */,
 				21B003832839EA9300E2A1BB /* SceneDelegate.swift */,
 				21B003852839EA9300E2A1BB /* ViewController.swift */,
+				210BA993283DFE2400D36609 /* InfoViewController.swift */,
 				CE1845C4283BCBD500F0194F /* TableView.swift */,
 				21B003872839EA9300E2A1BB /* Main.storyboard */,
 				21B0038A2839EA9400E2A1BB /* Assets.xcassets */,
@@ -193,6 +196,7 @@
 				21B003862839EA9300E2A1BB /* ViewController.swift in Sources */,
 				21FF6661283B423400FE7C25 /* Service.swift in Sources */,
 				21B003822839EA9300E2A1BB /* AppDelegate.swift in Sources */,
+				210BA994283DFE2400D36609 /* InfoViewController.swift in Sources */,
 				21FF6666283B441600FE7C25 /* Doors.swift in Sources */,
 				CE1845C5283BCBD500F0194F /* TableView.swift in Sources */,
 				21FF6663283B428400FE7C25 /* Cameras.swift in Sources */,
@@ -343,6 +347,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = H5CCX2A86G;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Cams/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -372,6 +377,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = H5CCX2A86G;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Cams/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;

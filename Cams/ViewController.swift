@@ -22,7 +22,7 @@ class ViewController: UIViewController {
         tableView.content()
         // Do any additional setup after loading the view.
     }
-
+    
     @IBAction func didTapCameras(_ sender: Any) {
         self.signifierLeading.constant = 0
     }
@@ -34,9 +34,29 @@ class ViewController: UIViewController {
             
             self.tableView.items.removeAll()
             doors.data.forEach({ door in
-                print(door)
-                self.tableView.items.append(.init(data: EntranceCell.Model(title: door.name), identifier: "EntranceCell"))
-                self.tableView.items.append(.init(data: DoorphoneCell.Model(title: door.name, subTitle: door.name, favorite: door.favorites), identifier: "DoorphoneCell"))
+                if door.snapshot == nil {
+                    self.tableView.items.append(
+                        .init(
+                            data: EntranceCell.Model(
+                                title: door.name
+                            ),
+                            identifier: "EntranceCell"
+                        )
+                    )
+                } else {
+                    self.tableView.items.append(
+                        .init(
+                            data: DoorphoneCell.Model(
+                                title: door.name,
+                                subTitle: door.name,
+                                favorite: door.favorites,
+                                snapshot: door.snapshot
+                            ),
+                            identifier: "DoorphoneCell"
+                        )
+                    )
+
+                }
             })
             
             self.tableView.reloadData()
