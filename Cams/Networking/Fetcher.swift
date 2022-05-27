@@ -8,7 +8,6 @@
 import Foundation
 
 final class Fetcher {
-    private let service = Service()
     
     private let camerasUrl = URL(string: "http://cars.cprogroup.ru/api/rubetek/cameras/")!
     private let doorsUrl = URL(string: "http://cars.cprogroup.ru/api/rubetek/doors/")!
@@ -22,10 +21,12 @@ final class Fetcher {
     }
     
     private func fetch<T: Decodable>(_ T: T.Type, url: URL, response: @escaping (T?) -> Void) {
-        service.request(url: url) { [weak self] result in
+        Service.request(url: url) { [weak self] result in
+            guard let self = self else { return }
+            
             switch result {
             case .success(let data):
-                response(self?.decode(T.self, data: data))
+                response(self.decode(T.self, data: data))
             case .failure(let error):
                 print(error)
                 response(nil)

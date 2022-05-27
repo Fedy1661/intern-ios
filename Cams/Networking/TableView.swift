@@ -6,102 +6,38 @@
 //
 
 import UIKit
+import RealmSwift
 
 protocol CellProtocol {
     func fill(_ data: Any)
 }
 
-class CamCell: UITableViewCell, CellProtocol {
-    struct Model {
-        let title: String
-        let recording: Bool
-        let favorite: Bool
-        let snapshot: String
-    }
-    
-    @IBOutlet weak var titleLabel: UILabel!
-    @IBOutlet weak var recording: UIView!
-    @IBOutlet weak var favorite: UIImageView!
-    @IBOutlet weak var snapshotImage: UIImageView!
-    @IBOutlet weak var blackout: UIView!
-    
-    @IBOutlet weak var maybeIt: UIView!
-    func fill(_ data: Any) {
-        print("Hhh")
-        self.maybeIt.layer.cornerRadius = 15
-        self.blackout.layer.cornerRadius = 15
-        guard let data = data as? Model else { return }
-        
-        print(data)
-        titleLabel.text = data.title
-        recording.isHidden = !data.recording
-        favorite.isHidden = !data.favorite
-        guard let imageURL = URL(string: data.snapshot) else { return }
-
-            // just not to cause a deadlock in UI!
-        DispatchQueue.global().async {
-            guard let imageData = try? Data(contentsOf: imageURL) else { return }
-
-            let image = UIImage(data: imageData)
-            DispatchQueue.main.async {
-                self.snapshotImage.clipsToBounds = true
-                self.snapshotImage.layer.cornerRadius = 15
-                self.snapshotImage.layer.maskedCorners = [.layerMaxXMinYCorner, .layerMinXMinYCorner]
-                self.snapshotImage.image = image
-                self.snapshotImage.contentMode = .scaleAspectFill
-            }
-        }
-        
-        
-    }
-}
-
-class DoorphoneCell: UITableViewCell, CellProtocol {
-    struct Model {
-        let title: String
-        let subTitle: String
-        let favorite: Bool
-    }
-    
-    @IBOutlet weak var titleLabel: UILabel!
-    @IBOutlet weak var subTitleLabel: UILabel!
-    @IBOutlet weak var lock: UIImageView!
-    @IBOutlet weak var favorite: UIImageView!
-    
-    func fill(_ data: Any) {
-        guard let data = data as? Model else { return }
-        
-        titleLabel.text = data.title
-        subTitleLabel.text = data.subTitle
-        favorite.isHidden = !data.favorite
-    }
-}
-
-class EntranceCell: UITableViewCell, CellProtocol {
-    struct Model {
-        let title: String
-    }
-    
-    @IBOutlet weak var titleLabel: UILabel!
-    
-    func fill(_ data: Any) {
-        guard let data = data as? Model else { return }
-        
-        titleLabel.text = data.title
-    }
-    
-}
-
 class TableView: UITableView, UITableViewDelegate, UITableViewDataSource {
     let fetcher = Fetcher()
+    let realm = try! Realm()
     
     struct Row {
         var data: Any
         var identifier: String
-//        var response: Response = .o
     }
     
     var items: [Row] = []
+    
+    var myRefreshControl: UIRefreshControl {
+        let refreshControl = UIRefreshControl()
+        refreshControl.addTarget(self, action: #selector(refresh(sender:)), for: .valueChanged)
+        return refreshControl
+    }
+    
+    @objc private func refresh(sender: UIRefreshControl) {
+        fetcher.fetchCameras { result in
+            guard let cams = result?.data.cameras else { return }
+            Database.shared.save(cams)
+            self.content(Camera.self)
+            
+            sender.endRefreshing()
+        }
+    }
     
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
@@ -111,38 +47,39 @@ class TableView: UITableView, UITableViewDelegate, UITableViewDataSource {
     func setup() {
         delegate = self
         dataSource = self
-     }
+        
+        refreshControl = myRefreshControl
+    }
     
-    func content() {
-        fetcher.fetchCameras { result in
-            guard let result = result else { return }
-            
-            result.data.cameras.forEach { [weak self] camera in
-                self?.items.append(.init(data: CamCell.Model(title: camera.name, recording: camera.rec, favorite: camera.favorites, snapshot: camera.snapshot), identifier: "CamCell"))
-            }
-            
-            self.reloadData()
+    func content<T: Object>(_ T: T.Type) {
+        if items.count != 0 { items.removeAll() }
+        
+        let objects = Database.shared.get(T.self)
+        
+        for item in objects {
+            guard let item = item as? Indentifier else { return }
+            items.append(
+                .init(
+                    data: item,
+                    identifier: item.indentifier
+                )
+            )
         }
-//        items = [
-//            .init(data: CamCell.Model(title: "Cam With Favorite", recording: false, favorite: true), identifier: "CamCell"),
-//            .init(data: CamCell.Model(title: "Cam With Rec", recording: true, favorite: false), identifier: "CamCell"),
-//            .init(data: DoorphoneCell.Model(title: "Doorphone", subTitle: "Sub", favorite: true), identifier: "DoorphoneCell"),
-//            .init(data: EntranceCell.Model(title: "Door 1"), identifier: "EntranceCell"),
-//            .init(data: EntranceCell.Model(title: "Door 2"), identifier: "EntranceCell"),
-//            .init(data: EntranceCell.Model(title: "Door 3"), identifier: "EntranceCell"),
-//            .init(data: EntranceCell.Model(title: "Door 4"), identifier: "EntranceCell"),
-//            .init(data: EntranceCell.Model(title: "Door 5"), identifier: "EntranceCell"),
-//            .init(data: EntranceCell.Model(title: "Door 6"), identifier: "EntranceCell"),
-//            .init(data: EntranceCell.Model(title: "Door 7"), identifier: "EntranceCell"),
-//        ]
+            
+        reloadData()
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         items.count
     }
+
+    func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+        "."
+    }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let item = items[indexPath.row]
+        
         let cell = tableView.dequeueReusableCell(withIdentifier: item.identifier, for: indexPath)
         if let ptc = cell as? CellProtocol {
             ptc.fill(item.data)
@@ -150,46 +87,50 @@ class TableView: UITableView, UITableViewDelegate, UITableViewDataSource {
         return cell
     }
     
-    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        UITableView.automaticDimension
-    }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         deselectRow(at: indexPath, animated: true)
     }
     
-    func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-        return "Гостиная"
-    }
-    
-    func tableView(_ tableView: UITableView, leadingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
-        let deleteAction = UIContextualAction(style: .destructive, title: "Add") { (action, view, handler) in
-            print("Add Action Tapped")
-        }
-        deleteAction.backgroundColor = .green
-        let configuration = UISwipeActionsConfiguration(actions: [deleteAction])
-        return configuration
-    }
-    
-    func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration?
-    {
-        let deleteAction = UIContextualAction(style: .destructive, title:  "", handler: { (ac:UIContextualAction, view:UIView, success:(Bool) -> Void) in
-            //whatever
+    func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
+        let addToFavoritesAction = UIContextualAction(style: .destructive, title:  "", handler: { (ac:UIContextualAction, view:UIView, success:(Bool) -> Void) in
             success(true)
+            Database.shared.toggleFavorite(item: self.items[indexPath.row].data as! Object)
+            self.content(Camera.self)
         })
         let editAction = UIContextualAction(style: .destructive, title:  "", handler: { (ac:UIContextualAction, view:UIView, success:(Bool) -> Void) in
-            //whatever
             success(true)
+            
+            let alertController = UIAlertController(title: "Изменить название", message: "Введите название", preferredStyle: .alert)
+            self.reloadData()
+            let save = UIAlertAction(title: "Сохранить", style: .default) { _ in
+                if let name = alertController.textFields?.first?.text {
+                    Database.shared.updateName(item: self.items[indexPath.row].data as! Object, name: name)
+                    self.reloadData()
+                }
+            }
+            let cancel = UIAlertAction(title: "Отмнить", style: .cancel, handler: nil)
+            
+            alertController.addTextField { nameField in
+                guard let item = self.items[indexPath.row].data as? Name else { return }
+                nameField.placeholder = "Введите название"
+                nameField.text = item.name
+            }
+            
+            alertController.addAction(save)
+            alertController.addAction(cancel)
+            
+            self.window?.rootViewController?.present(alertController, animated: true)
         })
-        let deleteActionImage = UIImage(named: "starSwipe")
+        
+        let addToFavoritesActionImage = UIImage(named: "starSwipe")
         let editActionImage = UIImage(named: "edit")
         
-        deleteAction.backgroundColor = UIColor(named: "backgroundColor")
+        addToFavoritesAction.backgroundColor = UIColor(named: "backgroundColor")
         editAction.backgroundColor = UIColor(named: "backgroundColor")
-
-        deleteAction.image = deleteActionImage
+        
+        addToFavoritesAction.image = addToFavoritesActionImage
         editAction.image = editActionImage
-        return UISwipeActionsConfiguration(actions: [deleteAction, editAction])
+        return UISwipeActionsConfiguration(actions: [addToFavoritesAction, editAction])
     }
-
 }

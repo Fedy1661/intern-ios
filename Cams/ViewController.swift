@@ -6,9 +6,11 @@
 //
 
 import UIKit
+import RealmSwift
 
 class ViewController: UIViewController {
     let fetcher = Fetcher()
+    let realm = try! Realm()
     
     @IBOutlet weak var header: UIView!
     @IBOutlet weak var signifier: UIView!
@@ -19,28 +21,44 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        tableView.content()
-        // Do any additional setup after loading the view.
+        if realm.objects(Camera.self).isEmpty {
+            fetcher.fetchCameras { result in
+                guard let cams = result?.data.cameras else { return }
+                Database.shared.save(cams)
+                
+                self.tableView.content(Camera.self)
+                
+            }
+        } else {
+            self.tableView.content(Camera.self)
+        }
+        
+        if realm.objects(Door.self).isEmpty {
+            fetcher.fetchDoors { result in
+                guard let doors = result?.data else { return }
+                
+                Database.shared.save(doors)
+            }
+        }
     }
 
     @IBAction func didTapCameras(_ sender: Any) {
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        let vc = storyboard.instantiateViewController(withIdentifier: "DoorView") as! DoorViewController
+        present(vc, animated: true)
+//         vc.newsObj = newsObj
+         navigationController?.pushViewController(vc,
+         animated: true)
+//        present(vc, animated: true)
         self.signifierLeading.constant = 0
+        
+        tableView.content(Camera.self)
     }
     
     @IBAction func didTapDoors(_ sender: Any) {
         self.signifierLeading.constant = self.signifier.frame.width
-        fetcher.fetchDoors { doors in
-            guard let doors = doors else { return }
-            
-            self.tableView.items.removeAll()
-            doors.data.forEach({ door in
-                print(door)
-                self.tableView.items.append(.init(data: EntranceCell.Model(title: door.name), identifier: "EntranceCell"))
-                self.tableView.items.append(.init(data: DoorphoneCell.Model(title: door.name, subTitle: door.name, favorite: door.favorites), identifier: "DoorphoneCell"))
-            })
-            
-            self.tableView.reloadData()
-        }
+
+        tableView.content(Door.self)
     }
     
 }
