@@ -43,6 +43,13 @@ class ViewController: UIViewController {
     }
 
     @IBAction func didTapCameras(_ sender: Any) {
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        let vc = storyboard.instantiateViewController(withIdentifier: "DoorView") as! DoorViewController
+        present(vc, animated: true)
+//         vc.newsObj = newsObj
+         navigationController?.pushViewController(vc,
+         animated: true)
+//        present(vc, animated: true)
         self.signifierLeading.constant = 0
         
         tableView.content(Camera.self)

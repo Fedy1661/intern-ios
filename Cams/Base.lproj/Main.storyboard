@@ -448,22 +448,22 @@
             </objects>
             <point key="canvasLocation" x="34.399999999999999" y="66.502463054187189"/>
         </scene>
-        <!--View Controller-->
+        <!--Door View Controller-->
         <scene sceneID="qXb-Gg-AXm">
             <objects>
-                <viewController id="RqV-Kb-vAd" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="DoorView" id="RqV-Kb-vAd" customClass="DoorViewController" customModule="Cams" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="XB6-CP-PMw">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Домофон общедомовой" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="brA-cB-NTh">
-                                <rect key="frame" x="0.0" y="60" width="375" height="31"/>
+                                <rect key="frame" x="0.0" y="59.999999999999993" width="375" height="24.666666666666664"/>
                                 <fontDescription key="fontDescription" name="Circe-Regular" family="Circe" pointSize="21"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="749" image="Frame 371" translatesAutoresizingMaskIntoConstraints="NO" id="gbc-T4-NIg">
-                                <rect key="frame" x="0.0" y="108" width="375" height="216"/>
+                                <rect key="frame" x="0.0" y="96.666666666666686" width="375" height="216"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="216" id="gFc-fC-p3Z"/>
                                 </constraints>
@@ -478,20 +478,53 @@
                                             <constraint firstAttribute="height" constant="32" id="id8-ds-7sh"/>
                                         </constraints>
                                     </imageView>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="blackscreen" translatesAutoresizingMaskIntoConstraints="NO" id="ZN8-rd-M6J">
+                                        <rect key="frame" x="327" y="13" width="32" height="32"/>
+                                    </imageView>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="arrowtop" translatesAutoresizingMaskIntoConstraints="NO" id="79j-ss-pdI">
+                                        <rect key="frame" x="175" y="14" width="25" height="9"/>
+                                    </imageView>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Настройки" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rcs-oF-aMd">
+                                        <rect key="frame" x="144.33333333333334" y="25" width="86.666666666666657" height="20"/>
+                                        <fontDescription key="fontDescription" name="Circe-Regular" family="Circe" pointSize="17"/>
+                                        <color key="textColor" red="0.73333333333333328" green="0.73333333333333328" blue="0.73333333333333328" alpha="1" colorSpace="calibratedRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
                                 </subviews>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <constraints>
+                                    <constraint firstItem="79j-ss-pdI" firstAttribute="top" secondItem="6ST-rv-Gd7" secondAttribute="top" constant="14" id="0WI-cd-Cc4"/>
+                                    <constraint firstAttribute="trailing" secondItem="ZN8-rd-M6J" secondAttribute="trailing" constant="16" id="6kj-P0-yDi"/>
                                     <constraint firstAttribute="height" constant="75" id="9i4-YV-xnd"/>
+                                    <constraint firstAttribute="bottom" secondItem="ZN8-rd-M6J" secondAttribute="bottom" constant="30" id="IhG-Wv-0cE"/>
                                     <constraint firstItem="ySR-c2-cDC" firstAttribute="top" secondItem="6ST-rv-Gd7" secondAttribute="top" constant="13" id="Jmm-3u-lxZ"/>
+                                    <constraint firstItem="79j-ss-pdI" firstAttribute="centerX" secondItem="6ST-rv-Gd7" secondAttribute="centerX" id="SGn-Le-W59"/>
+                                    <constraint firstItem="rcs-oF-aMd" firstAttribute="centerX" secondItem="6ST-rv-Gd7" secondAttribute="centerX" id="U4r-On-3Wi"/>
+                                    <constraint firstItem="rcs-oF-aMd" firstAttribute="top" secondItem="79j-ss-pdI" secondAttribute="bottom" constant="2" id="afm-ID-nQa"/>
                                     <constraint firstItem="ySR-c2-cDC" firstAttribute="leading" secondItem="6ST-rv-Gd7" secondAttribute="leading" constant="8" id="nfG-tN-Mbr"/>
+                                    <constraint firstItem="ZN8-rd-M6J" firstAttribute="top" secondItem="6ST-rv-Gd7" secondAttribute="top" constant="13" id="vLZ-bP-RAl"/>
                                 </constraints>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="J9l-By-zfE">
-                                <rect key="frame" x="16" y="609" width="343" height="105"/>
+                                <rect key="frame" x="16" y="602.66666666666663" width="343" height="111.33333333333337"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Открыть дверь" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uD1-Og-r3E">
+                                        <rect key="frame" x="121.66666666666666" y="83" width="99.666666666666657" height="16.333333333333329"/>
+                                        <fontDescription key="fontDescription" name="Circe-Light" family="Circe" pointSize="14"/>
+                                        <color key="textColor" red="0.59999999999999998" green="0.59999999999999998" blue="0.59999999999999998" alpha="1" colorSpace="calibratedRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="key" translatesAutoresizingMaskIntoConstraints="NO" id="DB3-CC-cNw">
+                                        <rect key="frame" x="151.66666666666666" y="24" width="40" height="40"/>
+                                    </imageView>
+                                </subviews>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <constraints>
+                                    <constraint firstItem="uD1-Og-r3E" firstAttribute="centerX" secondItem="J9l-By-zfE" secondAttribute="centerX" id="JOl-A0-fuL"/>
+                                    <constraint firstItem="DB3-CC-cNw" firstAttribute="top" secondItem="J9l-By-zfE" secondAttribute="top" constant="24" id="JrO-uu-sf8"/>
                                     <constraint firstAttribute="width" constant="343" id="QeD-GA-BlB"/>
-                                    <constraint firstAttribute="height" constant="105" id="ajQ-U6-yGx"/>
+                                    <constraint firstAttribute="bottom" secondItem="uD1-Og-r3E" secondAttribute="bottom" constant="12" id="aoZ-ky-gFw"/>
+                                    <constraint firstItem="DB3-CC-cNw" firstAttribute="centerX" secondItem="J9l-By-zfE" secondAttribute="centerX" id="jfm-i9-yKu"/>
                                 </constraints>
                             </view>
                         </subviews>
@@ -501,12 +534,13 @@
                             <constraint firstItem="6ST-rv-Gd7" firstAttribute="trailing" secondItem="mwG-LB-3PB" secondAttribute="trailing" id="2DI-RK-pQq"/>
                             <constraint firstItem="6ST-rv-Gd7" firstAttribute="top" secondItem="J9l-By-zfE" secondAttribute="bottom" constant="23" id="2iz-59-AnQ"/>
                             <constraint firstItem="brA-cB-NTh" firstAttribute="leading" secondItem="mwG-LB-3PB" secondAttribute="leading" id="5c3-kE-HSJ"/>
+                            <constraint firstItem="gbc-T4-NIg" firstAttribute="top" secondItem="brA-cB-NTh" secondAttribute="bottom" constant="12" id="9UU-g8-1Ix"/>
                             <constraint firstItem="6ST-rv-Gd7" firstAttribute="leading" secondItem="mwG-LB-3PB" secondAttribute="leading" id="MN0-fg-1Go"/>
                             <constraint firstItem="gbc-T4-NIg" firstAttribute="leading" secondItem="mwG-LB-3PB" secondAttribute="leading" id="QfS-JN-Gt9"/>
                             <constraint firstItem="mwG-LB-3PB" firstAttribute="trailing" secondItem="brA-cB-NTh" secondAttribute="trailing" id="Xs8-Xx-oUQ"/>
                             <constraint firstAttribute="bottom" secondItem="6ST-rv-Gd7" secondAttribute="bottom" id="YGh-fo-mwX"/>
                             <constraint firstItem="gbc-T4-NIg" firstAttribute="trailing" secondItem="mwG-LB-3PB" secondAttribute="trailing" id="YPZ-2j-bgo"/>
-                            <constraint firstItem="gbc-T4-NIg" firstAttribute="top" secondItem="brA-cB-NTh" secondAttribute="bottom" constant="17" id="bKV-hH-HXC"/>
+                            <constraint firstItem="J9l-By-zfE" firstAttribute="top" secondItem="gbc-T4-NIg" secondAttribute="bottom" constant="290" id="jxM-e4-tjm"/>
                             <constraint firstItem="mwG-LB-3PB" firstAttribute="trailing" secondItem="J9l-By-zfE" secondAttribute="trailing" constant="16" id="mVe-lP-0b5"/>
                             <constraint firstItem="J9l-By-zfE" firstAttribute="leading" secondItem="mwG-LB-3PB" secondAttribute="leading" constant="16" id="tzt-4m-61e"/>
                             <constraint firstItem="brA-cB-NTh" firstAttribute="top" secondItem="XB6-CP-PMw" secondAttribute="topMargin" constant="16" id="voH-dR-aEx"/>
@@ -515,13 +549,16 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="cyh-AW-ItJ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="791" y="67"/>
+            <point key="canvasLocation" x="789.60000000000002" y="66.502463054187189"/>
         </scene>
     </scenes>
     <resources>
         <image name="Frame 371" width="1500" height="864"/>
         <image name="arrowBack" width="32" height="32"/>
+        <image name="arrowtop" width="25" height="9"/>
+        <image name="blackscreen" width="32" height="32"/>
         <image name="eclipse" width="2" height="2"/>
+        <image name="key" width="40" height="40"/>
         <image name="lockon" width="24" height="24"/>
         <image name="play button" width="60" height="60"/>
         <image name="star" width="18" height="17"/>

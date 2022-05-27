@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		210BA99728408F1100D36609 /* Circe-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 210BA99528408F1000D36609 /* Circe-Bold.ttf */; };
+		210BA99828408F1100D36609 /* Circe-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 210BA99628408F1100D36609 /* Circe-Light.ttf */; };
+		210BA99A2840938300D36609 /* DoorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 210BA9992840938300D36609 /* DoorViewController.swift */; };
 		21B003822839EA9300E2A1BB /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21B003812839EA9300E2A1BB /* AppDelegate.swift */; };
 		21B003842839EA9300E2A1BB /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21B003832839EA9300E2A1BB /* SceneDelegate.swift */; };
 		21B003862839EA9300E2A1BB /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21B003852839EA9300E2A1BB /* ViewController.swift */; };
@@ -18,8 +21,6 @@
 		21FF6663283B428400FE7C25 /* Cameras.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21FF6662283B428400FE7C25 /* Cameras.swift */; };
 		21FF6666283B441600FE7C25 /* Doors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21FF6665283B441600FE7C25 /* Doors.swift */; };
 		21FF6668283B464400FE7C25 /* Fetcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21FF6667283B464400FE7C25 /* Fetcher.swift */; };
-		CE1845B9283B957000F0194F /* Circe-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = CE1845B8283B957000F0194F /* Circe-Bold.ttf */; };
-		CE1845BB283B957900F0194F /* Circe-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = CE1845BA283B957900F0194F /* Circe-Light.ttf */; };
 		CE1845C5283BCBD500F0194F /* TableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE1845C4283BCBD500F0194F /* TableView.swift */; };
 		CE247476283FAE4F00ECF465 /* Database.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE247475283FAE4F00ECF465 /* Database.swift */; };
 		CE696AE5283E4BDA003AA970 /* CamCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE696AE4283E4BDA003AA970 /* CamCell.swift */; };
@@ -30,6 +31,9 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		210BA99528408F1000D36609 /* Circe-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Circe-Bold.ttf"; sourceTree = "<group>"; };
+		210BA99628408F1100D36609 /* Circe-Light.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Circe-Light.ttf"; sourceTree = "<group>"; };
+		210BA9992840938300D36609 /* DoorViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DoorViewController.swift; sourceTree = "<group>"; };
 		21B0037E2839EA9300E2A1BB /* Cams.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Cams.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		21B003812839EA9300E2A1BB /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		21B003832839EA9300E2A1BB /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -43,8 +47,6 @@
 		21FF6662283B428400FE7C25 /* Cameras.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Cameras.swift; sourceTree = "<group>"; };
 		21FF6665283B441600FE7C25 /* Doors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Doors.swift; sourceTree = "<group>"; };
 		21FF6667283B464400FE7C25 /* Fetcher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Fetcher.swift; sourceTree = "<group>"; };
-		CE1845B8283B957000F0194F /* Circe-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Circe-Bold.ttf"; path = "../../../Circe-Bold.ttf"; sourceTree = "<group>"; };
-		CE1845BA283B957900F0194F /* Circe-Light.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Circe-Light.ttf"; path = "../../../Circe-Light.ttf"; sourceTree = "<group>"; };
 		CE1845C4283BCBD500F0194F /* TableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = TableView.swift; path = Networking/TableView.swift; sourceTree = "<group>"; };
 		CE247475283FAE4F00ECF465 /* Database.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Database.swift; sourceTree = "<group>"; };
 		CE696AE4283E4BDA003AA970 /* CamCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CamCell.swift; sourceTree = "<group>"; };
@@ -103,6 +105,7 @@
 				CE247475283FAE4F00ECF465 /* Database.swift */,
 				CE1845C4283BCBD500F0194F /* TableView.swift */,
 				21B003872839EA9300E2A1BB /* Main.storyboard */,
+				210BA9992840938300D36609 /* DoorViewController.swift */,
 				21B0038A2839EA9400E2A1BB /* Assets.xcassets */,
 				21B0038C2839EA9400E2A1BB /* LaunchScreen.storyboard */,
 				21B0038F2839EA9400E2A1BB /* Info.plist */,
@@ -113,8 +116,8 @@
 		21B003952839EC0300E2A1BB /* Fonts */ = {
 			isa = PBXGroup;
 			children = (
-				CE1845BA283B957900F0194F /* Circe-Light.ttf */,
-				CE1845B8283B957000F0194F /* Circe-Bold.ttf */,
+				210BA99528408F1000D36609 /* Circe-Bold.ttf */,
+				210BA99628408F1100D36609 /* Circe-Light.ttf */,
 				21B003962839EDAC00E2A1BB /* Circe-Regular.ttf */,
 			);
 			path = Fonts;
@@ -204,11 +207,11 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				CE1845B9283B957000F0194F /* Circe-Bold.ttf in Resources */,
 				21B0038E2839EA9400E2A1BB /* LaunchScreen.storyboard in Resources */,
+				210BA99728408F1100D36609 /* Circe-Bold.ttf in Resources */,
 				21B0038B2839EA9400E2A1BB /* Assets.xcassets in Resources */,
 				21B003972839EDAC00E2A1BB /* Circe-Regular.ttf in Resources */,
-				CE1845BB283B957900F0194F /* Circe-Light.ttf in Resources */,
+				210BA99828408F1100D36609 /* Circe-Light.ttf in Resources */,
 				21B003892839EA9300E2A1BB /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -232,6 +235,7 @@
 				CE1845C5283BCBD500F0194F /* TableView.swift in Sources */,
 				21FF6663283B428400FE7C25 /* Cameras.swift in Sources */,
 				21B003842839EA9300E2A1BB /* SceneDelegate.swift in Sources */,
+				210BA99A2840938300D36609 /* DoorViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
