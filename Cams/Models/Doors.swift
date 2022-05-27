@@ -13,14 +13,18 @@ struct DoorsResponse: Decodable {
     let success: Bool
     
     func getData() -> [Door] {
-        data
+        data	
     }
 }
 
-class Door: Object, Decodable {
+class Door: Object, Decodable, Indentifier, Favorites, Name {
     @objc dynamic var id: Int
     @objc dynamic var name: String
     @objc dynamic var room: String?
     @objc dynamic var favorites: Bool
     @objc dynamic var snapshot: String?
+    
+    var indentifier: String {
+        snapshot != nil ? DoorphoneCell.identifier : EntranceCell.identifier
+    }
 }

@@ -16,7 +16,6 @@ class CamCell: UITableViewCell, CellProtocol {
     @IBOutlet weak var snapshotImage: UIImageView!
     
     func fill(_ data: Any) {
-        print(data)
         guard let data = data as? Camera else { return }
         
         titleLabel.text = data.name
@@ -24,10 +23,12 @@ class CamCell: UITableViewCell, CellProtocol {
         favorite.isHidden = !data.favorites
         guard let url = URL(string: data.snapshot) else { return }
         
-        DispatchQueue.global().async {
-            let dataImage = try? Data(contentsOf: url)
-            DispatchQueue.main.async {
-                self.snapshotImage.image = UIImage(data: dataImage!)
+        Service.request(url: url) { result in
+            switch result {
+            case .success(let dataImage):
+                self.snapshotImage.image = UIImage(data: dataImage)
+            case .failure(_):
+                self.snapshotImage.backgroundColor = .systemMint
             }
         }
     }

@@ -10,16 +10,12 @@ import UIKit
 class EntranceCell: UITableViewCell, CellProtocol {
     static let identifier = "EntranceCell"
     
-    struct Model {
-        let title: String
-    }
-    
     @IBOutlet weak var titleLabel: UILabel!
     
     func fill(_ data: Any) {
-        guard let data = data as? Model else { return }
+        guard let data = data as? Door else { return }
         
-        titleLabel.text = data.title
+        titleLabel.text = data.name
     }
     
 }

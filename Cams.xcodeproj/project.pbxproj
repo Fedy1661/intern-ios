@@ -21,6 +21,7 @@
 		CE1845B9283B957000F0194F /* Circe-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = CE1845B8283B957000F0194F /* Circe-Bold.ttf */; };
 		CE1845BB283B957900F0194F /* Circe-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = CE1845BA283B957900F0194F /* Circe-Light.ttf */; };
 		CE1845C5283BCBD500F0194F /* TableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE1845C4283BCBD500F0194F /* TableView.swift */; };
+		CE247476283FAE4F00ECF465 /* Database.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE247475283FAE4F00ECF465 /* Database.swift */; };
 		CE696AE5283E4BDA003AA970 /* CamCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE696AE4283E4BDA003AA970 /* CamCell.swift */; };
 		CE696AE7283E4C08003AA970 /* DoorphoneCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE696AE6283E4C08003AA970 /* DoorphoneCell.swift */; };
 		CE696AEA283E4C4A003AA970 /* EntranceCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE696AE9283E4C4A003AA970 /* EntranceCell.swift */; };
@@ -45,6 +46,7 @@
 		CE1845B8283B957000F0194F /* Circe-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Circe-Bold.ttf"; path = "../../../Circe-Bold.ttf"; sourceTree = "<group>"; };
 		CE1845BA283B957900F0194F /* Circe-Light.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Circe-Light.ttf"; path = "../../../Circe-Light.ttf"; sourceTree = "<group>"; };
 		CE1845C4283BCBD500F0194F /* TableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = TableView.swift; path = Networking/TableView.swift; sourceTree = "<group>"; };
+		CE247475283FAE4F00ECF465 /* Database.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Database.swift; sourceTree = "<group>"; };
 		CE696AE4283E4BDA003AA970 /* CamCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CamCell.swift; sourceTree = "<group>"; };
 		CE696AE6283E4C08003AA970 /* DoorphoneCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DoorphoneCell.swift; sourceTree = "<group>"; };
 		CE696AE9283E4C4A003AA970 /* EntranceCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EntranceCell.swift; sourceTree = "<group>"; };
@@ -98,6 +100,7 @@
 				21B003812839EA9300E2A1BB /* AppDelegate.swift */,
 				21B003832839EA9300E2A1BB /* SceneDelegate.swift */,
 				21B003852839EA9300E2A1BB /* ViewController.swift */,
+				CE247475283FAE4F00ECF465 /* Database.swift */,
 				CE1845C4283BCBD500F0194F /* TableView.swift */,
 				21B003872839EA9300E2A1BB /* Main.storyboard */,
 				21B0038A2839EA9400E2A1BB /* Assets.xcassets */,
@@ -223,6 +226,7 @@
 				21FF6661283B423400FE7C25 /* Service.swift in Sources */,
 				21B003822839EA9300E2A1BB /* AppDelegate.swift in Sources */,
 				21FF6666283B441600FE7C25 /* Doors.swift in Sources */,
+				CE247476283FAE4F00ECF465 /* Database.swift in Sources */,
 				CE696AEA283E4C4A003AA970 /* EntranceCell.swift in Sources */,
 				CE696AE7283E4C08003AA970 /* DoorphoneCell.swift in Sources */,
 				CE1845C5283BCBD500F0194F /* TableView.swift in Sources */,
@@ -374,7 +378,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = B5Q8GJQL77;
+				DEVELOPMENT_TEAM = H5CCX2A86G;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Cams/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -389,7 +393,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = fedy1661.cameras;
+				PRODUCT_BUNDLE_IDENTIFIER = rik.cameras;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
@@ -404,7 +408,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = B5Q8GJQL77;
+				DEVELOPMENT_TEAM = H5CCX2A86G;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Cams/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -419,7 +423,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = fedy1661.cameras;
+				PRODUCT_BUNDLE_IDENTIFIER = rik.cameras;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
