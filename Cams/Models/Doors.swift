@@ -24,6 +24,7 @@ final class Door: BaseObject, Decodable, Favorites, Name {
     dynamic var room: String?
     dynamic var favorites: Bool
     dynamic var snapshot: String?
+    dynamic var lock: Bool? = false
     
     override class func primaryKey() -> String? {
         "id"
@@ -38,6 +39,12 @@ final class Door: BaseObject, Decodable, Favorites, Name {
     func updateName(_ name: String) {
         try! Realm.app.write({
             self.name = name
+        })
+    }
+    
+    func toggleLock() {
+        try! Realm.app.write({
+            lock = !(lock ?? true)
         })
     }
 }

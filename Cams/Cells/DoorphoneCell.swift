@@ -15,6 +15,7 @@ class DoorphoneCell: UITableViewCell, CellProtocol {
     @IBOutlet weak var lock: UIImageView!
     @IBOutlet weak var favorite: UIImageView!
     @IBOutlet weak var snapshotImage: UIImageView!
+    @IBOutlet weak var locked: UIImageView!
     
     func fill(_ data: Any) {
         guard let data = data as? Door else { return }
@@ -22,6 +23,7 @@ class DoorphoneCell: UITableViewCell, CellProtocol {
         titleLabel.text = data.name
         subTitleLabel.text = data.room
         favorite.isHidden = !data.favorites
+        locked.isHidden = data.lock ?? true
         guard let url = URL(string: data.snapshot ?? "") else { return }
         
         Service.request(url: url) { result in

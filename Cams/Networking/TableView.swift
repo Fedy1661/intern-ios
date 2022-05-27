@@ -51,6 +51,7 @@ final class TableView: UITableView, UITableViewDelegate, UITableViewDataSource {
         dataSource = self
         
         refreshControl = myRefreshControl
+        content(Camera.getAll())
     }
     
     
@@ -96,6 +97,13 @@ final class TableView: UITableView, UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         deselectRow(at: indexPath, animated: true)
+        let k = UIStoryboard(name: "Main", bundle: .main).instantiateViewController(withIdentifier: "second.screen") as! DoorViewController
+        k.callback = {
+            guard let item = self.items[indexPath.row].data as? Door else { return }
+            item.toggleLock()
+            self.reloadData()
+        }
+        self.window?.rootViewController?.present(k, animated: true)
     }
     
     func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {

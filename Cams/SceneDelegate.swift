@@ -1,8 +1,8 @@
 //
 //  SceneDelegate.swift
-//  Cams
+//  newwest
 //
-//  Created by Fedor Konovalov on 22.05.2022.
+//  Created by CPRO GROUP on 25.05.2022.
 //
 
 import UIKit

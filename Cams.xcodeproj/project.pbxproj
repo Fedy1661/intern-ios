@@ -11,7 +11,6 @@
 		210BA99828408F1100D36609 /* Circe-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 210BA99628408F1100D36609 /* Circe-Light.ttf */; };
 		210BA99A2840938300D36609 /* DoorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 210BA9992840938300D36609 /* DoorViewController.swift */; };
 		21B003822839EA9300E2A1BB /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21B003812839EA9300E2A1BB /* AppDelegate.swift */; };
-		21B003842839EA9300E2A1BB /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21B003832839EA9300E2A1BB /* SceneDelegate.swift */; };
 		21B003862839EA9300E2A1BB /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21B003852839EA9300E2A1BB /* ViewController.swift */; };
 		21B003892839EA9300E2A1BB /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 21B003872839EA9300E2A1BB /* Main.storyboard */; };
 		21B0038B2839EA9400E2A1BB /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 21B0038A2839EA9400E2A1BB /* Assets.xcassets */; };
@@ -21,6 +20,7 @@
 		21FF6663283B428400FE7C25 /* Cameras.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21FF6662283B428400FE7C25 /* Cameras.swift */; };
 		21FF6666283B441600FE7C25 /* Doors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21FF6665283B441600FE7C25 /* Doors.swift */; };
 		21FF6668283B464400FE7C25 /* Fetcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21FF6667283B464400FE7C25 /* Fetcher.swift */; };
+		CE1314C828411BF400C3DE4D /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE1314C728411BF400C3DE4D /* SceneDelegate.swift */; };
 		CE1845C5283BCBD500F0194F /* TableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE1845C4283BCBD500F0194F /* TableView.swift */; };
 		CE247476283FAE4F00ECF465 /* DBManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE247475283FAE4F00ECF465 /* DBManager.swift */; };
 		CE696AE5283E4BDA003AA970 /* CamCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE696AE4283E4BDA003AA970 /* CamCell.swift */; };
@@ -36,7 +36,6 @@
 		210BA9992840938300D36609 /* DoorViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DoorViewController.swift; sourceTree = "<group>"; };
 		21B0037E2839EA9300E2A1BB /* Cams.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Cams.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		21B003812839EA9300E2A1BB /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		21B003832839EA9300E2A1BB /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		21B003852839EA9300E2A1BB /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		21B003882839EA9300E2A1BB /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		21B0038A2839EA9400E2A1BB /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -47,6 +46,7 @@
 		21FF6662283B428400FE7C25 /* Cameras.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Cameras.swift; sourceTree = "<group>"; };
 		21FF6665283B441600FE7C25 /* Doors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Doors.swift; sourceTree = "<group>"; };
 		21FF6667283B464400FE7C25 /* Fetcher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Fetcher.swift; sourceTree = "<group>"; };
+		CE1314C728411BF400C3DE4D /* SceneDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		CE1845C4283BCBD500F0194F /* TableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = TableView.swift; path = Networking/TableView.swift; sourceTree = "<group>"; };
 		CE247475283FAE4F00ECF465 /* DBManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DBManager.swift; sourceTree = "<group>"; };
 		CE696AE4283E4BDA003AA970 /* CamCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CamCell.swift; sourceTree = "<group>"; };
@@ -100,12 +100,12 @@
 				217EEF86283B415600E60FED /* Networking */,
 				21B003952839EC0300E2A1BB /* Fonts */,
 				21B003812839EA9300E2A1BB /* AppDelegate.swift */,
-				21B003832839EA9300E2A1BB /* SceneDelegate.swift */,
 				21B003852839EA9300E2A1BB /* ViewController.swift */,
 				CE247475283FAE4F00ECF465 /* DBManager.swift */,
 				CE1845C4283BCBD500F0194F /* TableView.swift */,
 				21B003872839EA9300E2A1BB /* Main.storyboard */,
 				210BA9992840938300D36609 /* DoorViewController.swift */,
+				CE1314C728411BF400C3DE4D /* SceneDelegate.swift */,
 				21B0038A2839EA9400E2A1BB /* Assets.xcassets */,
 				21B0038C2839EA9400E2A1BB /* LaunchScreen.storyboard */,
 				21B0038F2839EA9400E2A1BB /* Info.plist */,
@@ -231,10 +231,10 @@
 				21FF6666283B441600FE7C25 /* Doors.swift in Sources */,
 				CE247476283FAE4F00ECF465 /* DBManager.swift in Sources */,
 				CE696AEA283E4C4A003AA970 /* EntranceCell.swift in Sources */,
+				CE1314C828411BF400C3DE4D /* SceneDelegate.swift in Sources */,
 				CE696AE7283E4C08003AA970 /* DoorphoneCell.swift in Sources */,
 				CE1845C5283BCBD500F0194F /* TableView.swift in Sources */,
 				21FF6663283B428400FE7C25 /* Cameras.swift in Sources */,
-				21B003842839EA9300E2A1BB /* SceneDelegate.swift in Sources */,
 				210BA99A2840938300D36609 /* DoorViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

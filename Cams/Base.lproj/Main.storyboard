@@ -20,7 +20,7 @@
         <!--View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="Cams" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="main.screen" id="BYZ-38-t0r" customClass="ViewController" customModule="Cams" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -293,7 +293,8 @@
                                         <color key="backgroundColor" name="backgroundColor"/>
                                         <connections>
                                             <outlet property="favorite" destination="UBk-b7-q8f" id="BrC-ER-UZt"/>
-                                            <outlet property="lock" destination="ggd-Di-ino" id="Pcj-4W-fLr"/>
+                                            <outlet property="lock" destination="ggd-Di-ino" id="Nf9-Uf-PsG"/>
+                                            <outlet property="locked" destination="ggd-Di-ino" id="7Fi-QG-cSy"/>
                                             <outlet property="snapshotImage" destination="uQn-mr-Z6b" id="7NA-y1-Xrh"/>
                                             <outlet property="subTitleLabel" destination="pvK-Cn-BCA" id="EsH-tz-k5x"/>
                                             <outlet property="titleLabel" destination="xfs-ic-oon" id="fv9-CH-nTS"/>
@@ -350,6 +351,7 @@
                                         </tableViewCellContentView>
                                         <color key="backgroundColor" name="backgroundColor"/>
                                         <connections>
+                                            <outlet property="locked" destination="3TJ-8E-Equ" id="KgA-Hl-LjV"/>
                                             <outlet property="titleLabel" destination="0GA-S9-FyJ" id="owa-Xq-cbS"/>
                                         </connections>
                                     </tableViewCell>
@@ -451,7 +453,7 @@
         <!--Door View Controller-->
         <scene sceneID="qXb-Gg-AXm">
             <objects>
-                <viewController storyboardIdentifier="DoorViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="RqV-Kb-vAd" customClass="DoorViewController" customModule="Cams" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="second.screen" id="RqV-Kb-vAd" customClass="DoorViewController" customModule="Cams" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="XB6-CP-PMw">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -516,16 +518,27 @@
                                     </label>
                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="key" translatesAutoresizingMaskIntoConstraints="NO" id="DB3-CC-cNw">
                                         <rect key="frame" x="151.66666666666666" y="24" width="40" height="40"/>
+                                        <gestureRecognizers/>
                                     </imageView>
                                 </subviews>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <gestureRecognizers/>
                                 <constraints>
                                     <constraint firstItem="uD1-Og-r3E" firstAttribute="centerX" secondItem="J9l-By-zfE" secondAttribute="centerX" id="JOl-A0-fuL"/>
                                     <constraint firstItem="DB3-CC-cNw" firstAttribute="top" secondItem="J9l-By-zfE" secondAttribute="top" constant="24" id="JrO-uu-sf8"/>
                                     <constraint firstAttribute="width" constant="343" id="QeD-GA-BlB"/>
                                     <constraint firstAttribute="bottom" secondItem="uD1-Og-r3E" secondAttribute="bottom" constant="12" id="aoZ-ky-gFw"/>
                                     <constraint firstItem="DB3-CC-cNw" firstAttribute="centerX" secondItem="J9l-By-zfE" secondAttribute="centerX" id="jfm-i9-yKu"/>
+                                    <constraint firstAttribute="height" constant="105" id="l5F-XQ-S3b"/>
                                 </constraints>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                        <integer key="value" value="15"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <outletCollection property="gestureRecognizers" destination="EgC-8b-2Ik" appends="YES" id="koP-sK-FgF"/>
+                                </connections>
                             </view>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="mwG-LB-3PB"/>
@@ -546,8 +559,17 @@
                             <constraint firstItem="brA-cB-NTh" firstAttribute="top" secondItem="XB6-CP-PMw" secondAttribute="topMargin" constant="16" id="voH-dR-aEx"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="gestureOpenDoor" destination="EgC-8b-2Ik" id="IrU-u6-DVW"/>
+                        <outlet property="openDoorView" destination="J9l-By-zfE" id="INa-9H-Ft1"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="cyh-AW-ItJ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <tapGestureRecognizer id="EgC-8b-2Ik">
+                    <connections>
+                        <action selector="openDoor:" destination="RqV-Kb-vAd" id="C73-SW-KV3"/>
+                    </connections>
+                </tapGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="789.60000000000002" y="66.502463054187189"/>
         </scene>

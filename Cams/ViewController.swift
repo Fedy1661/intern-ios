@@ -19,23 +19,25 @@ class ViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
         if Camera.getAll().isEmpty {
             fetcher.fetchCameras { [self] result in
                 guard let cams = result?.getData() else { return }
                 Camera.save(cams)
-                
+
                 tableView.content(Camera.getAll())
-                
+
             }
-        } else {
-            self.tableView.content(Camera.getAll())
         }
-        
+
         if Door.getAll().isEmpty {
             fetcher.fetchDoors { result in
                 guard let doors = result?.getData() else { return }
-                
+
                 Door.save(doors)
             }
         }
@@ -54,9 +56,6 @@ class ViewController: UIViewController {
         self.signifierLeading.constant = self.signifier.frame.width
 
         tableView.content(Door.getAll())
-        
-        let k = UIStoryboard(name: "Main", bundle: .main).instantiateViewController(withIdentifier: "second.screen")
-        present(k, animated: true)
     }
     
 }
