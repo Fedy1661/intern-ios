@@ -22,7 +22,7 @@ class DoorphoneCell: UITableViewCell, CellProtocol {
         titleLabel.text = data.name
         subTitleLabel.text = data.room
         favorite.isHidden = !data.favorites
-        guard let url = URL(string: data.snapshot!) else { return }
+        guard let url = URL(string: data.snapshot ?? "") else { return }
         
         Service.request(url: url) { result in
             switch result {

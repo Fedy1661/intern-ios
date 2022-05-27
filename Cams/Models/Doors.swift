@@ -17,14 +17,27 @@ struct DoorsResponse: Decodable {
     }
 }
 
-class Door: Object, Decodable, Indentifier, Favorites, Name {
-    @objc dynamic var id: Int
-    @objc dynamic var name: String
-    @objc dynamic var room: String?
-    @objc dynamic var favorites: Bool
-    @objc dynamic var snapshot: String?
+final class Door: BaseObject, Decodable, Favorites, Name {
     
-    var indentifier: String {
-        snapshot != nil ? DoorphoneCell.identifier : EntranceCell.identifier
+    dynamic var id: Int
+    dynamic var name: String
+    dynamic var room: String?
+    dynamic var favorites: Bool
+    dynamic var snapshot: String?
+    
+    override class func primaryKey() -> String? {
+        "id"
+    }
+    
+    func toggleFavorite() {
+        try! Realm.app.write({
+            favorites = !favorites
+        })
+    }
+    
+    func updateName(_ name: String) {
+        try! Realm.app.write({
+            self.name = name
+        })
     }
 }

@@ -22,7 +22,7 @@
 		21FF6666283B441600FE7C25 /* Doors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21FF6665283B441600FE7C25 /* Doors.swift */; };
 		21FF6668283B464400FE7C25 /* Fetcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21FF6667283B464400FE7C25 /* Fetcher.swift */; };
 		CE1845C5283BCBD500F0194F /* TableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE1845C4283BCBD500F0194F /* TableView.swift */; };
-		CE247476283FAE4F00ECF465 /* Database.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE247475283FAE4F00ECF465 /* Database.swift */; };
+		CE247476283FAE4F00ECF465 /* DBManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE247475283FAE4F00ECF465 /* DBManager.swift */; };
 		CE696AE5283E4BDA003AA970 /* CamCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE696AE4283E4BDA003AA970 /* CamCell.swift */; };
 		CE696AE7283E4C08003AA970 /* DoorphoneCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE696AE6283E4C08003AA970 /* DoorphoneCell.swift */; };
 		CE696AEA283E4C4A003AA970 /* EntranceCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE696AE9283E4C4A003AA970 /* EntranceCell.swift */; };
@@ -48,7 +48,7 @@
 		21FF6665283B441600FE7C25 /* Doors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Doors.swift; sourceTree = "<group>"; };
 		21FF6667283B464400FE7C25 /* Fetcher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Fetcher.swift; sourceTree = "<group>"; };
 		CE1845C4283BCBD500F0194F /* TableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = TableView.swift; path = Networking/TableView.swift; sourceTree = "<group>"; };
-		CE247475283FAE4F00ECF465 /* Database.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Database.swift; sourceTree = "<group>"; };
+		CE247475283FAE4F00ECF465 /* DBManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DBManager.swift; sourceTree = "<group>"; };
 		CE696AE4283E4BDA003AA970 /* CamCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CamCell.swift; sourceTree = "<group>"; };
 		CE696AE6283E4C08003AA970 /* DoorphoneCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DoorphoneCell.swift; sourceTree = "<group>"; };
 		CE696AE9283E4C4A003AA970 /* EntranceCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EntranceCell.swift; sourceTree = "<group>"; };
@@ -102,7 +102,7 @@
 				21B003812839EA9300E2A1BB /* AppDelegate.swift */,
 				21B003832839EA9300E2A1BB /* SceneDelegate.swift */,
 				21B003852839EA9300E2A1BB /* ViewController.swift */,
-				CE247475283FAE4F00ECF465 /* Database.swift */,
+				CE247475283FAE4F00ECF465 /* DBManager.swift */,
 				CE1845C4283BCBD500F0194F /* TableView.swift */,
 				21B003872839EA9300E2A1BB /* Main.storyboard */,
 				210BA9992840938300D36609 /* DoorViewController.swift */,
@@ -229,7 +229,7 @@
 				21FF6661283B423400FE7C25 /* Service.swift in Sources */,
 				21B003822839EA9300E2A1BB /* AppDelegate.swift in Sources */,
 				21FF6666283B441600FE7C25 /* Doors.swift in Sources */,
-				CE247476283FAE4F00ECF465 /* Database.swift in Sources */,
+				CE247476283FAE4F00ECF465 /* DBManager.swift in Sources */,
 				CE696AEA283E4C4A003AA970 /* EntranceCell.swift in Sources */,
 				CE696AE7283E4C08003AA970 /* DoorphoneCell.swift in Sources */,
 				CE1845C5283BCBD500F0194F /* TableView.swift in Sources */,

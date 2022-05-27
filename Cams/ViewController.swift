@@ -10,7 +10,6 @@ import RealmSwift
 
 class ViewController: UIViewController {
     let fetcher = Fetcher()
-    let realm = try! Realm()
     
     @IBOutlet weak var header: UIView!
     @IBOutlet weak var signifier: UIView!
@@ -21,44 +20,43 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        if realm.objects(Camera.self).isEmpty {
-            fetcher.fetchCameras { result in
-                guard let cams = result?.data.cameras else { return }
-                Database.shared.save(cams)
+        if Camera.getAll().isEmpty {
+            fetcher.fetchCameras { [self] result in
+                guard let cams = result?.getData() else { return }
+                Camera.save(cams)
                 
-                self.tableView.content(Camera.self)
+                tableView.content(Camera.getAll())
                 
             }
         } else {
-            self.tableView.content(Camera.self)
+            self.tableView.content(Camera.getAll())
         }
         
-        if realm.objects(Door.self).isEmpty {
+        if Door.getAll().isEmpty {
             fetcher.fetchDoors { result in
-                guard let doors = result?.data else { return }
+                guard let doors = result?.getData() else { return }
                 
-                Database.shared.save(doors)
+                Door.save(doors)
             }
         }
     }
 
     @IBAction func didTapCameras(_ sender: Any) {
-        let storyboard = UIStoryboard(name: "Main", bundle: nil)
-        let vc = storyboard.instantiateViewController(withIdentifier: "DoorView") as! DoorViewController
-        present(vc, animated: true)
-//         vc.newsObj = newsObj
-         navigationController?.pushViewController(vc,
-         animated: true)
+//        let storyboard = UIStoryboard(name: "Main", bundle: .main)
+//        let vc = storyboard.instantiateViewController(withIdentifier: "DoorViewController")
 //        present(vc, animated: true)
         self.signifierLeading.constant = 0
         
-        tableView.content(Camera.self)
+        tableView.content(Camera.getAll())
     }
     
     @IBAction func didTapDoors(_ sender: Any) {
         self.signifierLeading.constant = self.signifier.frame.width
 
-        tableView.content(Door.self)
+        tableView.content(Door.getAll())
+        
+        let k = UIStoryboard(name: "Main", bundle: .main).instantiateViewController(withIdentifier: "second.screen")
+        present(k, animated: true)
     }
     
 }

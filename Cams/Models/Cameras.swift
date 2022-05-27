@@ -22,30 +22,55 @@ struct CamerasData: Decodable {
     let cameras: [Camera]
 }
 
-protocol Indentifier {
-    var indentifier: String { get }
-}
-
 protocol Favorites {
     dynamic var favorites: Bool { get set }
+    
+    func toggleFavorite()
 }
 
 protocol Name {
     dynamic var name: String { get set }
+    
+    func updateName(_ name: String)
 }
 
-class Camera: Object, Decodable, Indentifier, Favorites, Name {
-    @objc dynamic var id: Int
-    @objc dynamic var rec: Bool
-    @objc dynamic var name: String
-    @objc dynamic var room: String?
-    @objc dynamic var snapshot: String
-    @objc dynamic var favorites: Bool
+@objcMembers
+class BaseObject: Object {
+    dynamic var createdAt = Date()
+    
+    static func save(_ data: [Object]) {
+        try! Realm.app.write({
+            Realm.app.add(data, update: .modified)
+        })
+    }
+    
+    static func getAll() -> [Object] {
+        Array(Realm.app.objects(self))
+    }
+}
+
+final class Camera: BaseObject, Decodable, Favorites, Name {
+    
+    dynamic var id: Int
+    dynamic var rec: Bool
+    dynamic var name: String
+    dynamic var room: String?
+    dynamic var snapshot: String
+    dynamic var favorites: Bool
     
     override class func primaryKey() -> String? {
-        return "id"
+        "id"
     }
-
     
-    var indentifier: String{ CamCell.identifier}
+    func toggleFavorite() {
+        try! Realm.app.write({
+            favorites = !favorites
+        })
+    }
+    
+    func updateName(_ name: String) {
+        try! Realm.app.write({
+            self.name = name
+        })
+    }
 }

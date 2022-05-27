@@ -12,9 +12,9 @@ protocol CellProtocol {
     func fill(_ data: Any)
 }
 
-class TableView: UITableView, UITableViewDelegate, UITableViewDataSource {
+final class TableView: UITableView, UITableViewDelegate, UITableViewDataSource {
+    let realm = Realm.app
     let fetcher = Fetcher()
-    let realm = try! Realm()
     
     struct Row {
         var data: Any
@@ -22,6 +22,7 @@ class TableView: UITableView, UITableViewDelegate, UITableViewDataSource {
     }
     
     var items: [Row] = []
+//    var callbacks
     
     var myRefreshControl: UIRefreshControl {
         let refreshControl = UIRefreshControl()
@@ -32,8 +33,9 @@ class TableView: UITableView, UITableViewDelegate, UITableViewDataSource {
     @objc private func refresh(sender: UIRefreshControl) {
         fetcher.fetchCameras { result in
             guard let cams = result?.data.cameras else { return }
-            Database.shared.save(cams)
-            self.content(Camera.self)
+            Camera.save(cams)
+            
+            self.content(Camera.getAll())
             
             sender.endRefreshing()
         }
@@ -51,28 +53,31 @@ class TableView: UITableView, UITableViewDelegate, UITableViewDataSource {
         refreshControl = myRefreshControl
     }
     
-    func content<T: Object>(_ T: T.Type) {
-        if items.count != 0 { items.removeAll() }
-        
-        let objects = Database.shared.get(T.self)
-        
-        for item in objects {
-            guard let item = item as? Indentifier else { return }
-            items.append(
-                .init(
-                    data: item,
-                    identifier: item.indentifier
-                )
+    
+    func content(_ data: [Object]) {
+        items = data.map { item in
+            guard let item = item as? BaseObject else { fatalError() }
+            let indentifier:String = {
+                if item is Camera { return CamCell.identifier }
+                if let door = item as? Door, door.snapshot != nil {
+                    return DoorphoneCell.identifier
+                }
+                return EntranceCell.identifier
+            }()
+            
+            return .init(
+                data: item,
+                identifier: indentifier
             )
         }
-            
+        
         reloadData()
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         items.count
     }
-
+    
     func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
         "."
     }
@@ -84,6 +89,7 @@ class TableView: UITableView, UITableViewDelegate, UITableViewDataSource {
         if let ptc = cell as? CellProtocol {
             ptc.fill(item.data)
         }
+        
         return cell
     }
     
@@ -95,8 +101,9 @@ class TableView: UITableView, UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
         let addToFavoritesAction = UIContextualAction(style: .destructive, title:  "", handler: { (ac:UIContextualAction, view:UIView, success:(Bool) -> Void) in
             success(true)
-            Database.shared.toggleFavorite(item: self.items[indexPath.row].data as! Object)
-            self.content(Camera.self)
+            guard let item = self.items[indexPath.row].data as? Favorites else { return }
+            item.toggleFavorite()
+            self.content(Camera.getAll())
         })
         let editAction = UIContextualAction(style: .destructive, title:  "", handler: { (ac:UIContextualAction, view:UIView, success:(Bool) -> Void) in
             success(true)
@@ -105,7 +112,8 @@ class TableView: UITableView, UITableViewDelegate, UITableViewDataSource {
             self.reloadData()
             let save = UIAlertAction(title: "Сохранить", style: .default) { _ in
                 if let name = alertController.textFields?.first?.text {
-                    Database.shared.updateName(item: self.items[indexPath.row].data as! Object, name: name)
+                    guard let item = self.items[indexPath.row].data as? Name else { return }
+                    item.updateName(name)
                     self.reloadData()
                 }
             }
