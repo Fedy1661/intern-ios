@@ -7,7 +7,11 @@
 
 import UIKit
 
-class CamCell: UITableViewCell, CellProtocol {
+protocol FavoriteCell {
+    var favorite: UIImageView! { get set }
+}
+
+class CamCell: UITableViewCell, CellProtocol, FavoriteCell {
     static let identifier = "CamCell"
     
     @IBOutlet weak var titleLabel: UILabel!

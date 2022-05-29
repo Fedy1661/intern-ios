@@ -7,7 +7,7 @@
 
 import UIKit
 
-class DoorphoneCell: UITableViewCell, CellProtocol {
+class DoorphoneCell: UITableViewCell, CellProtocol, FavoriteCell {
     static let identifier = "DoorphoneCell"
     
     @IBOutlet weak var titleLabel: UILabel!

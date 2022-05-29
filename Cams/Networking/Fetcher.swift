@@ -13,6 +13,7 @@ final class Fetcher {
     private let doorsUrl = URL(string: "http://cars.cprogroup.ru/api/rubetek/doors/")!
     
     func fetchCameras (response: @escaping (CamerasResponse?) -> Void) {
+        print("FETCH")
         fetch(CamerasResponse.self, url: camerasUrl, response: response)
     }
     

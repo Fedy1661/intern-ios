@@ -29,4 +29,8 @@ class Image: Object {
             Realm.app.add(self, update: .modified)
         })
     }
+    
+    static func first(url: String) -> Image? {
+        Realm.app.objects(Image.self).first { $0.url == url }
+    }
 }

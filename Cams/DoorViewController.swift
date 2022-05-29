@@ -13,10 +13,14 @@ enum Action {
 
 class DoorViewController: ViewController {
     
+    var locked = Bool()
     var callback: [Action: () -> Void] = [:]
     
+    @IBOutlet weak var toggleDoorLabel: UILabel!
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        toggleDoorLabel.text = locked ? "Открыть дверь" : "Закрыть дверь"
     }
 
     @IBAction func openDoor(_ sender: Any) {

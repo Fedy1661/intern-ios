@@ -1,0 +1,42 @@
+
+/* Class = "UILabel"; text = "Подъезд 1"; ObjectID = "0GA-S9-FyJ"; */
+"0GA-S9-FyJ.text" = "Подъезд 1";
+
+/* Class = "UILabel"; text = "Title"; ObjectID = "NqW-9Z-Crl"; */
+"NqW-9Z-Crl.text" = "Title";
+
+/* Class = "UILabel"; text = "REC"; ObjectID = "U1S-X2-VeJ"; */
+"U1S-X2-VeJ.text" = "REC";
+
+/* Class = "UILabel"; text = "Домофон общедомовой"; ObjectID = "brA-cB-NTh"; */
+"brA-cB-NTh.text" = "Public house intercom";
+
+/* Class = "UIButton"; configuration.title = "Двери"; ObjectID = "hws-af-jyP"; */
+"hws-af-jyP.configuration.title" = "Doors";
+
+/* Class = "UIButton"; normalTitle = "Button"; ObjectID = "hws-af-jyP"; */
+"hws-af-jyP.normalTitle" = "Button";
+
+/* Class = "UIButton"; configuration.title = "Камеры"; ObjectID = "iJW-Bb-f6K"; */
+"iJW-Bb-f6K.configuration.title" = "Cameras";
+
+/* Class = "UIButton"; normalTitle = "Button"; ObjectID = "iJW-Bb-f6K"; */
+"iJW-Bb-f6K.normalTitle" = "Button";
+
+/* Class = "UILabel"; text = "В сети"; ObjectID = "pvK-Cn-BCA"; */
+"pvK-Cn-BCA.text" = "Online";
+
+/* Class = "UILabel"; text = "Настройки"; ObjectID = "rcs-oF-aMd"; */
+"rcs-oF-aMd.text" = "Settings";
+
+/* Class = "UILabel"; text = "REC"; ObjectID = "sdq-aZ-lJ7"; */
+"sdq-aZ-lJ7.text" = "REC";
+
+/* Class = "UILabel"; text = "Открыть дверь"; ObjectID = "uD1-Og-r3E"; */
+"uD1-Og-r3E.text" = "Open the door";
+
+/* Class = "UILabel"; text = "Мой дом"; ObjectID = "xdI-LX-Hso"; */
+"xdI-LX-Hso.text" = "My house";
+
+/* Class = "UILabel"; text = "Домофон"; ObjectID = "xfs-ic-oon"; */
+"xfs-ic-oon.text" = "Doorphone";

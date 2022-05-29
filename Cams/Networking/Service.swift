@@ -10,7 +10,7 @@ import RealmSwift
 
 final class Service {
     static func loadImage(url: URL,  completion: @escaping (Data) -> Void) {
-        let image = Realm.app.objects(Image.self).filter({ $0.url == url.absoluteString }).first
+        let image = Image.first(url: url.absoluteString)
         if let image = image {
             completion(image.data)
             print("FOUNDED")

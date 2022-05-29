@@ -14,9 +14,9 @@
 		2112375528423394000B75EB /* DoorActions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2112375428423394000B75EB /* DoorActions.swift */; };
 		2112375828423402000B75EB /* CameraActions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2112375728423401000B75EB /* CameraActions.swift */; };
 		2112375A2843176C000B75EB /* Image.swift in Sources */ = {isa = PBXBuildFile; fileRef = 211237592843176C000B75EB /* Image.swift */; };
+		21123766284349D3000B75EB /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 21123768284349D3000B75EB /* Main.storyboard */; };
 		21B003822839EA9300E2A1BB /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21B003812839EA9300E2A1BB /* AppDelegate.swift */; };
 		21B003862839EA9300E2A1BB /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21B003852839EA9300E2A1BB /* ViewController.swift */; };
-		21B003892839EA9300E2A1BB /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 21B003872839EA9300E2A1BB /* Main.storyboard */; };
 		21B0038B2839EA9400E2A1BB /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 21B0038A2839EA9400E2A1BB /* Assets.xcassets */; };
 		21B0038E2839EA9400E2A1BB /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 21B0038C2839EA9400E2A1BB /* LaunchScreen.storyboard */; };
 		21B003972839EDAC00E2A1BB /* Circe-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 21B003962839EDAC00E2A1BB /* Circe-Regular.ttf */; };
@@ -42,12 +42,12 @@
 		2112375428423394000B75EB /* DoorActions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DoorActions.swift; sourceTree = "<group>"; };
 		2112375728423401000B75EB /* CameraActions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraActions.swift; sourceTree = "<group>"; };
 		211237592843176C000B75EB /* Image.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Image.swift; sourceTree = "<group>"; };
+		2112376A28434A1E000B75EB /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		2112376B28434A1E000B75EB /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		21B0037E2839EA9300E2A1BB /* Cams.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Cams.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		21B003812839EA9300E2A1BB /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		21B003852839EA9300E2A1BB /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		21B003882839EA9300E2A1BB /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		21B0038A2839EA9400E2A1BB /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		21B0038D2839EA9400E2A1BB /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		21B0038F2839EA9400E2A1BB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		21B003962839EDAC00E2A1BB /* Circe-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Circe-Regular.ttf"; sourceTree = "<group>"; };
 		21FF6660283B423400FE7C25 /* Service.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Service.swift; sourceTree = "<group>"; };
@@ -129,11 +129,11 @@
 				21B003812839EA9300E2A1BB /* AppDelegate.swift */,
 				21B003852839EA9300E2A1BB /* ViewController.swift */,
 				CE1845C4283BCBD500F0194F /* TableView.swift */,
-				21B003872839EA9300E2A1BB /* Main.storyboard */,
 				210BA9992840938300D36609 /* DoorViewController.swift */,
 				CE1314C728411BF400C3DE4D /* SceneDelegate.swift */,
-				21B0038A2839EA9400E2A1BB /* Assets.xcassets */,
+				21123768284349D3000B75EB /* Main.storyboard */,
 				21B0038C2839EA9400E2A1BB /* LaunchScreen.storyboard */,
+				21B0038A2839EA9400E2A1BB /* Assets.xcassets */,
 				21B0038F2839EA9400E2A1BB /* Info.plist */,
 			);
 			path = Cams;
@@ -238,9 +238,9 @@
 				21B0038E2839EA9400E2A1BB /* LaunchScreen.storyboard in Resources */,
 				210BA99728408F1100D36609 /* Circe-Bold.ttf in Resources */,
 				21B0038B2839EA9400E2A1BB /* Assets.xcassets in Resources */,
+				21123766284349D3000B75EB /* Main.storyboard in Resources */,
 				21B003972839EDAC00E2A1BB /* Circe-Regular.ttf in Resources */,
 				210BA99828408F1100D36609 /* Circe-Light.ttf in Resources */,
-				21B003892839EA9300E2A1BB /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -274,10 +274,10 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
-		21B003872839EA9300E2A1BB /* Main.storyboard */ = {
+		21123768284349D3000B75EB /* Main.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
-				21B003882839EA9300E2A1BB /* Base */,
+				2112376A28434A1E000B75EB /* Base */,
 			);
 			name = Main.storyboard;
 			sourceTree = "<group>";
@@ -285,7 +285,7 @@
 		21B0038C2839EA9400E2A1BB /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
-				21B0038D2839EA9400E2A1BB /* Base */,
+				2112376B28434A1E000B75EB /* Base */,
 			);
 			name = LaunchScreen.storyboard;
 			sourceTree = "<group>";
@@ -297,6 +297,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++17";
@@ -357,6 +358,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++17";

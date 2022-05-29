@@ -10,22 +10,23 @@ import RealmSwift
 
 class ViewController: UIViewController {
     let fetcher = Fetcher()
+    var setupped: Bool = false
     
     @IBOutlet weak var header: UIView!
     @IBOutlet weak var signifier: UIView!
     
     @IBOutlet weak var tableView: TableView!
     @IBOutlet weak var signifierLeading: NSLayoutConstraint!
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        setupData()
     }
     
-    override func viewDidAppear(_ animated: Bool) {
-        super.viewDidAppear(animated)
+    func setupData() {
         if Camera.getAll().isEmpty {
             fetcher.fetchCameras { [self] result in
+                
                 guard let cams = result?.getData() else { return }
                 
                 cams.forEach { camera in
@@ -66,14 +67,18 @@ class ViewController: UIViewController {
     }
 
     @IBAction func didTapCameras(_ sender: Any) {
+        guard tableView.currentTypeItems != .cameras else { return }
         self.signifierLeading.constant = 0
         
+        tableView.currentTypeItems = .cameras
         tableView.content(Camera.getAll())
     }
     
     @IBAction func didTapDoors(_ sender: Any) {
+        guard tableView.currentTypeItems != .doors else { return }
         self.signifierLeading.constant = self.signifier.frame.width
 
+        tableView.currentTypeItems = .doors
         tableView.content(Door.getAll())
     }
     

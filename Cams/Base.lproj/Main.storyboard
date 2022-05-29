@@ -588,6 +588,9 @@
                             <constraint firstItem="J9l-By-zfE" firstAttribute="leading" secondItem="mwG-LB-3PB" secondAttribute="leading" constant="16" id="wc4-o1-Tqr"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="toggleDoorLabel" destination="uD1-Og-r3E" id="0m3-dT-Nif"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="cyh-AW-ItJ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
                 <tapGestureRecognizer id="EgC-8b-2Ik">

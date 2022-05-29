@@ -13,13 +13,16 @@ protocol CellProtocol {
 }
 
 enum Properties: String {
-    case favorites = "favorites"
     case name = "name"
     case locked = "locked"
 }
 
+enum Tab {
+    case cameras
+    case doors
+}
+
 final class TableView: UITableView, UITableViewDelegate, UITableViewDataSource {
-    let realm = Realm.app
     let fetcher = Fetcher()
     var notificationToken = [NotificationToken]()
     
@@ -29,6 +32,7 @@ final class TableView: UITableView, UITableViewDelegate, UITableViewDataSource {
     }
     
     var items: [Row] = []
+    var currentTypeItems: Tab = .cameras
     
     var tableRefreshControl: UIRefreshControl {
         let refreshControl = UIRefreshControl()
@@ -37,24 +41,44 @@ final class TableView: UITableView, UITableViewDelegate, UITableViewDataSource {
     }
     
     @objc private func refresh(sender: UIRefreshControl) {
-        fetcher.fetchCameras { result in
-            guard let cams = result?.data.cameras else { return }
-            cams.forEach { camera in
-                let newCamera = Camera()
+        defer { sender.endRefreshing() }
+        if currentTypeItems == .cameras {
+            fetcher.fetchCameras { result in
+                guard let cams = result?.data.cameras else { return }
+                cams.forEach { camera in
+                    let newCamera = Camera()
+                    
+                    newCamera.id = camera.id
+                    newCamera.name = camera.name
+                    newCamera.room = camera.room
+                    newCamera.snapshot = camera.snapshot
+                    newCamera.favorites = camera.favorites
+                    newCamera.rec = camera.rec
+                    
+                    newCamera.save()
+                }
                 
-                newCamera.id = camera.id
-                newCamera.name = camera.name
-                newCamera.room = camera.room
-                newCamera.snapshot = camera.snapshot
-                newCamera.favorites = camera.favorites
-                newCamera.rec = camera.rec
-                
-                newCamera.save()
+                self.content(Camera.getAll())
+                sender.attributedTitle = NSAttributedString(string: "Загрузка..")
             }
-            
-            self.content(Camera.getAll())
-            
-            sender.endRefreshing()
+        } else {
+            fetcher.fetchDoors { result in
+                guard let doors = result?.getData() else { return }
+                
+                doors.forEach { door in
+                    let newDoor = Door()
+                    
+                    newDoor.name = door.name
+                    newDoor.room = door.room
+                    newDoor.favorites = door.favorites
+                    newDoor.snapshot = door.snapshot
+                    newDoor.id = door.id
+                    newDoor.locked = true
+                    
+                    newDoor.save()
+                }
+                self.content(Door.getAll())
+            }
         }
     }
     
@@ -74,7 +98,7 @@ final class TableView: UITableView, UITableViewDelegate, UITableViewDataSource {
     func content(_ data: [Object]) {
         if !notificationToken.isEmpty { notificationToken.removeAll() }
         
-        items = data.enumerated().map { (index, item) in
+        items = data.map { item in
             guard let item = item as? BaseObject else { fatalError() }
             
             let indentifier: String = {
@@ -104,9 +128,8 @@ final class TableView: UITableView, UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let item = items[indexPath.row]
-    
         let cell = tableView.dequeueReusableCell(withIdentifier: item.identifier, for: indexPath)
-
+        
         if let cell = cell as? CellProtocol { cell.fill(item.data) }
         
         notificationToken.append(item.data.observe({ change in
@@ -121,6 +144,7 @@ final class TableView: UITableView, UITableViewDelegate, UITableViewDataSource {
         let k = UIStoryboard(name: "Main", bundle: .main).instantiateViewController(withIdentifier: "second.screen") as! DoorViewController
         guard let item = self.items[indexPath.row].data as? Door else { return }
         
+        k.locked = item.locked
         k.callback[.open] = { item.toggleLock() }
         k.callback[.delete] = { item.delete() }
         
@@ -128,9 +152,12 @@ final class TableView: UITableView, UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
+        let cell = self.cellForRow(at: indexPath)
         let toggleFavoriteAction = UIContextualAction(style: .destructive, title:  "", handler: { (_, _, success: (Bool) -> Void) in
             guard let item = self.items[indexPath.row].data as? Favorites else { return }
+            guard let cell = cell as? FavoriteCell else { return }
             item.toggleFavorite()
+            cell.favorite.isHidden = !cell.favorite.isHidden
             success(true)
         })
         
@@ -146,7 +173,10 @@ final class TableView: UITableView, UITableViewDelegate, UITableViewDataSource {
         toggleFavoriteAction.image = UIImage(named: "starSwipe")
         editNameAction.image = UIImage(named: "edit")
         
-        return UISwipeActionsConfiguration(actions: [toggleFavoriteAction, editNameAction])
+        var actions: [UIContextualAction] = [editNameAction]
+        if cell is FavoriteCell { actions.insert(toggleFavoriteAction, at: 0)}
+        
+        return UISwipeActionsConfiguration(actions: actions)
     }
     
     func observe(change: ObjectChange<ObjectBase>, cell: UITableViewCell) {
@@ -157,11 +187,7 @@ final class TableView: UITableView, UITableViewDelegate, UITableViewDataSource {
             guard let property = properties.first else { return }
             
             switch Properties(rawValue: property.name) {
-            case .favorites:
-                self.reloadRows(at: [indexPath], with: .right)
-            case .name:
-                self.reloadRows(at: [indexPath], with: .fade)
-            case .locked:
+            case .name, .locked:
                 self.reloadRows(at: [indexPath], with: .fade)
             default: break
             }
