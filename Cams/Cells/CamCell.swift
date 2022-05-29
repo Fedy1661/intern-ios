@@ -23,13 +23,10 @@ class CamCell: UITableViewCell, CellProtocol {
         favorite.isHidden = !data.favorites
         guard let url = URL(string: data.snapshot) else { return }
         
-        Service.request(url: url) { result in
-            switch result {
-            case .success(let dataImage):
-                self.snapshotImage.image = UIImage(data: dataImage)
-            case .failure(_):
-                self.snapshotImage.backgroundColor = .systemMint
-            }
+        Service.loadImage(url: url) { [weak self] dataImage in
+            guard let self = self else { return }
+            
+            self.snapshotImage.image = UIImage(data: dataImage)
         }
     }
 }

@@ -7,21 +7,27 @@
 
 import UIKit
 
-class DoorViewController: ViewController {
+enum Action {
+    case open, delete
+}
 
-    @IBOutlet weak var openDoorView: UIView!
-    @IBOutlet var gestureOpenDoor: UITapGestureRecognizer!
+class DoorViewController: ViewController {
     
-    var callback: (() -> Void)!
+    var callback: [Action: () -> Void] = [:]
     
     override func viewDidLoad() {
         super.viewDidLoad()
     }
 
     @IBAction func openDoor(_ sender: Any) {
-        callback()
+        callback[.open]!()
         dismiss(animated: true)
     }
 
+    @IBAction func deleteDoor(_ sender: Any) {
+        callback[.delete]!()
+        dismiss(animated: true)
+    }
+    
 }
 

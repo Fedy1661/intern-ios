@@ -10,6 +10,10 @@
 		210BA99728408F1100D36609 /* Circe-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 210BA99528408F1000D36609 /* Circe-Bold.ttf */; };
 		210BA99828408F1100D36609 /* Circe-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 210BA99628408F1100D36609 /* Circe-Light.ttf */; };
 		210BA99A2840938300D36609 /* DoorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 210BA9992840938300D36609 /* DoorViewController.swift */; };
+		211237522842319C000B75EB /* BaseObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 211237512842319C000B75EB /* BaseObject.swift */; };
+		2112375528423394000B75EB /* DoorActions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2112375428423394000B75EB /* DoorActions.swift */; };
+		2112375828423402000B75EB /* CameraActions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2112375728423401000B75EB /* CameraActions.swift */; };
+		2112375A2843176C000B75EB /* Image.swift in Sources */ = {isa = PBXBuildFile; fileRef = 211237592843176C000B75EB /* Image.swift */; };
 		21B003822839EA9300E2A1BB /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21B003812839EA9300E2A1BB /* AppDelegate.swift */; };
 		21B003862839EA9300E2A1BB /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21B003852839EA9300E2A1BB /* ViewController.swift */; };
 		21B003892839EA9300E2A1BB /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 21B003872839EA9300E2A1BB /* Main.storyboard */; };
@@ -17,12 +21,12 @@
 		21B0038E2839EA9400E2A1BB /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 21B0038C2839EA9400E2A1BB /* LaunchScreen.storyboard */; };
 		21B003972839EDAC00E2A1BB /* Circe-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 21B003962839EDAC00E2A1BB /* Circe-Regular.ttf */; };
 		21FF6661283B423400FE7C25 /* Service.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21FF6660283B423400FE7C25 /* Service.swift */; };
-		21FF6663283B428400FE7C25 /* Cameras.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21FF6662283B428400FE7C25 /* Cameras.swift */; };
-		21FF6666283B441600FE7C25 /* Doors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21FF6665283B441600FE7C25 /* Doors.swift */; };
+		21FF6663283B428400FE7C25 /* Camera.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21FF6662283B428400FE7C25 /* Camera.swift */; };
+		21FF6666283B441600FE7C25 /* Door.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21FF6665283B441600FE7C25 /* Door.swift */; };
 		21FF6668283B464400FE7C25 /* Fetcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21FF6667283B464400FE7C25 /* Fetcher.swift */; };
 		CE1314C828411BF400C3DE4D /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE1314C728411BF400C3DE4D /* SceneDelegate.swift */; };
 		CE1845C5283BCBD500F0194F /* TableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE1845C4283BCBD500F0194F /* TableView.swift */; };
-		CE247476283FAE4F00ECF465 /* DBManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE247475283FAE4F00ECF465 /* DBManager.swift */; };
+		CE247476283FAE4F00ECF465 /* RealmExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE247475283FAE4F00ECF465 /* RealmExtension.swift */; };
 		CE696AE5283E4BDA003AA970 /* CamCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE696AE4283E4BDA003AA970 /* CamCell.swift */; };
 		CE696AE7283E4C08003AA970 /* DoorphoneCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE696AE6283E4C08003AA970 /* DoorphoneCell.swift */; };
 		CE696AEA283E4C4A003AA970 /* EntranceCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE696AE9283E4C4A003AA970 /* EntranceCell.swift */; };
@@ -34,6 +38,10 @@
 		210BA99528408F1000D36609 /* Circe-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Circe-Bold.ttf"; sourceTree = "<group>"; };
 		210BA99628408F1100D36609 /* Circe-Light.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Circe-Light.ttf"; sourceTree = "<group>"; };
 		210BA9992840938300D36609 /* DoorViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DoorViewController.swift; sourceTree = "<group>"; };
+		211237512842319C000B75EB /* BaseObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseObject.swift; sourceTree = "<group>"; };
+		2112375428423394000B75EB /* DoorActions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DoorActions.swift; sourceTree = "<group>"; };
+		2112375728423401000B75EB /* CameraActions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraActions.swift; sourceTree = "<group>"; };
+		211237592843176C000B75EB /* Image.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Image.swift; sourceTree = "<group>"; };
 		21B0037E2839EA9300E2A1BB /* Cams.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Cams.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		21B003812839EA9300E2A1BB /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		21B003852839EA9300E2A1BB /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -43,12 +51,12 @@
 		21B0038F2839EA9400E2A1BB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		21B003962839EDAC00E2A1BB /* Circe-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Circe-Regular.ttf"; sourceTree = "<group>"; };
 		21FF6660283B423400FE7C25 /* Service.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Service.swift; sourceTree = "<group>"; };
-		21FF6662283B428400FE7C25 /* Cameras.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Cameras.swift; sourceTree = "<group>"; };
-		21FF6665283B441600FE7C25 /* Doors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Doors.swift; sourceTree = "<group>"; };
+		21FF6662283B428400FE7C25 /* Camera.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Camera.swift; sourceTree = "<group>"; };
+		21FF6665283B441600FE7C25 /* Door.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Door.swift; sourceTree = "<group>"; };
 		21FF6667283B464400FE7C25 /* Fetcher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Fetcher.swift; sourceTree = "<group>"; };
 		CE1314C728411BF400C3DE4D /* SceneDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		CE1845C4283BCBD500F0194F /* TableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = TableView.swift; path = Networking/TableView.swift; sourceTree = "<group>"; };
-		CE247475283FAE4F00ECF465 /* DBManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DBManager.swift; sourceTree = "<group>"; };
+		CE247475283FAE4F00ECF465 /* RealmExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmExtension.swift; sourceTree = "<group>"; };
 		CE696AE4283E4BDA003AA970 /* CamCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CamCell.swift; sourceTree = "<group>"; };
 		CE696AE6283E4C08003AA970 /* DoorphoneCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DoorphoneCell.swift; sourceTree = "<group>"; };
 		CE696AE9283E4C4A003AA970 /* EntranceCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EntranceCell.swift; sourceTree = "<group>"; };
@@ -67,11 +75,30 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		2112375328423388000B75EB /* Door */ = {
+			isa = PBXGroup;
+			children = (
+				21FF6665283B441600FE7C25 /* Door.swift */,
+				2112375428423394000B75EB /* DoorActions.swift */,
+			);
+			path = Door;
+			sourceTree = "<group>";
+		};
+		21123756284233E6000B75EB /* Camera */ = {
+			isa = PBXGroup;
+			children = (
+				21FF6662283B428400FE7C25 /* Camera.swift */,
+				2112375728423401000B75EB /* CameraActions.swift */,
+			);
+			path = Camera;
+			sourceTree = "<group>";
+		};
 		217EEF86283B415600E60FED /* Networking */ = {
 			isa = PBXGroup;
 			children = (
 				21FF6660283B423400FE7C25 /* Service.swift */,
 				21FF6667283B464400FE7C25 /* Fetcher.swift */,
+				CE247475283FAE4F00ECF465 /* RealmExtension.swift */,
 			);
 			path = Networking;
 			sourceTree = "<group>";
@@ -95,13 +122,12 @@
 		21B003802839EA9300E2A1BB /* Cams */ = {
 			isa = PBXGroup;
 			children = (
+				21B003952839EC0300E2A1BB /* Fonts */,
 				CE696AE8283E4C13003AA970 /* Cells */,
 				21FF6664283B440A00FE7C25 /* Models */,
 				217EEF86283B415600E60FED /* Networking */,
-				21B003952839EC0300E2A1BB /* Fonts */,
 				21B003812839EA9300E2A1BB /* AppDelegate.swift */,
 				21B003852839EA9300E2A1BB /* ViewController.swift */,
-				CE247475283FAE4F00ECF465 /* DBManager.swift */,
 				CE1845C4283BCBD500F0194F /* TableView.swift */,
 				21B003872839EA9300E2A1BB /* Main.storyboard */,
 				210BA9992840938300D36609 /* DoorViewController.swift */,
@@ -126,8 +152,10 @@
 		21FF6664283B440A00FE7C25 /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				21FF6662283B428400FE7C25 /* Cameras.swift */,
-				21FF6665283B441600FE7C25 /* Doors.swift */,
+				2112375328423388000B75EB /* Door */,
+				21123756284233E6000B75EB /* Camera */,
+				211237512842319C000B75EB /* BaseObject.swift */,
+				211237592843176C000B75EB /* Image.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -228,13 +256,17 @@
 				CE696AE5283E4BDA003AA970 /* CamCell.swift in Sources */,
 				21FF6661283B423400FE7C25 /* Service.swift in Sources */,
 				21B003822839EA9300E2A1BB /* AppDelegate.swift in Sources */,
-				21FF6666283B441600FE7C25 /* Doors.swift in Sources */,
-				CE247476283FAE4F00ECF465 /* DBManager.swift in Sources */,
+				21FF6666283B441600FE7C25 /* Door.swift in Sources */,
+				CE247476283FAE4F00ECF465 /* RealmExtension.swift in Sources */,
 				CE696AEA283E4C4A003AA970 /* EntranceCell.swift in Sources */,
+				2112375828423402000B75EB /* CameraActions.swift in Sources */,
 				CE1314C828411BF400C3DE4D /* SceneDelegate.swift in Sources */,
 				CE696AE7283E4C08003AA970 /* DoorphoneCell.swift in Sources */,
+				2112375A2843176C000B75EB /* Image.swift in Sources */,
+				2112375528423394000B75EB /* DoorActions.swift in Sources */,
 				CE1845C5283BCBD500F0194F /* TableView.swift in Sources */,
-				21FF6663283B428400FE7C25 /* Cameras.swift in Sources */,
+				211237522842319C000B75EB /* BaseObject.swift in Sources */,
+				21FF6663283B428400FE7C25 /* Camera.swift in Sources */,
 				210BA99A2840938300D36609 /* DoorViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

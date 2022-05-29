@@ -17,14 +17,15 @@ extension Realm {
             return conf
         }())
     }
-}
-
-
-final class DBManager {
-    private let realm = Realm.app
-    static let shared = DBManager()
     
-    func get<T: Object>(_ T: T.Type) -> [T] {
-        Array(realm.objects(T.self))
-    }
 }
+
+
+//final class DBManager {
+//    private let realm = Realm.app
+//    static let shared = DBManager()
+//
+//    func get<T: Object>(_ T: T.Type) -> [T] {
+//        Array(realm.objects(T.self))
+//    }
+//}

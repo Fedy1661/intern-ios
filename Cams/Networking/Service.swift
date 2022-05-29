@@ -6,9 +6,30 @@
 //
 
 import Foundation
+import RealmSwift
 
 final class Service {
+    static func loadImage(url: URL,  completion: @escaping (Data) -> Void) {
+        let image = Realm.app.objects(Image.self).filter({ $0.url == url.absoluteString }).first
+        if let image = image {
+            completion(image.data)
+            print("FOUNDED")
+        } else {
+            Service.request(url: url) { result in
+                switch result {
+                case .success(let data):
+                    let image = Image(url: url.absoluteString, data: data)
+                    image.save()
+                    completion(data)
+                case .failure(_):
+                    print("Failed to load image")
+                }
+            }
+        }
+    }
+    
     static func request(url: URL, completion: @escaping (Result<Data, Error>) -> Void) {
+        print(url.absoluteString)
         URLSession.shared.dataTask(with: url) { data, response, error in
             DispatchQueue.main.async {
                 if let error = error {

@@ -17,7 +17,7 @@ class EntranceCell: UITableViewCell, CellProtocol {
         guard let data = data as? Door else { return }
         
         titleLabel.text = data.name
-        locked.isHidden = data.lock ?? true
+        locked.isHidden = !data.locked
     }
     
 }
