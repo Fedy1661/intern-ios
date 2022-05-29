@@ -43,4 +43,17 @@ final class Camera: BaseObject, Favorites, Name {
     override class func primaryKey() -> String? {
         "id"
     }
+    
+    static func insert(_ data: CameraModel) {
+        let camera = Camera()
+        
+        camera.id = data.id
+        camera.name = data.name
+        camera.room = data.room
+        camera.snapshot = data.snapshot
+        camera.favorites = data.favorites
+        camera.rec = data.rec
+        
+        camera.save()
+    }
 }

@@ -41,42 +41,18 @@ final class TableView: UITableView, UITableViewDelegate, UITableViewDataSource {
     }
     
     @objc private func refresh(sender: UIRefreshControl) {
+        sender.attributedTitle = NSAttributedString(string: "Загрузка..")
         defer { sender.endRefreshing() }
         if currentTypeItems == .cameras {
             fetcher.fetchCameras { result in
                 guard let cams = result?.data.cameras else { return }
-                cams.forEach { camera in
-                    let newCamera = Camera()
-                    
-                    newCamera.id = camera.id
-                    newCamera.name = camera.name
-                    newCamera.room = camera.room
-                    newCamera.snapshot = camera.snapshot
-                    newCamera.favorites = camera.favorites
-                    newCamera.rec = camera.rec
-                    
-                    newCamera.save()
-                }
-                
+                cams.forEach { Camera.insert($0) }
                 self.content(Camera.getAll())
-                sender.attributedTitle = NSAttributedString(string: "Загрузка..")
             }
         } else {
             fetcher.fetchDoors { result in
                 guard let doors = result?.getData() else { return }
-                
-                doors.forEach { door in
-                    let newDoor = Door()
-                    
-                    newDoor.name = door.name
-                    newDoor.room = door.room
-                    newDoor.favorites = door.favorites
-                    newDoor.snapshot = door.snapshot
-                    newDoor.id = door.id
-                    newDoor.locked = true
-                    
-                    newDoor.save()
-                }
+                doors.forEach { Door.insert($0) }
                 self.content(Door.getAll())
             }
         }
@@ -178,6 +154,8 @@ final class TableView: UITableView, UITableViewDelegate, UITableViewDataSource {
         
         return UISwipeActionsConfiguration(actions: actions)
     }
+    
+    // MARK: - Observer
     
     func observe(change: ObjectChange<ObjectBase>, cell: UITableViewCell) {
         guard let indexPath = indexPath(for: cell) else { return }

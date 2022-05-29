@@ -10,7 +10,6 @@ import RealmSwift
 
 class ViewController: UIViewController {
     let fetcher = Fetcher()
-    var setupped: Bool = false
     
     @IBOutlet weak var header: UIView!
     @IBOutlet weak var signifier: UIView!
@@ -23,25 +22,13 @@ class ViewController: UIViewController {
         setupData()
     }
     
+    // MARK: - Setup
+    
     func setupData() {
         if Camera.getAll().isEmpty {
             fetcher.fetchCameras { [self] result in
-                
                 guard let cams = result?.getData() else { return }
-                
-                cams.forEach { camera in
-                    let newCamera = Camera()
-                    
-                    newCamera.id = camera.id
-                    newCamera.name = camera.name
-                    newCamera.room = camera.room
-                    newCamera.snapshot = camera.snapshot
-                    newCamera.favorites = camera.favorites
-                    newCamera.rec = camera.rec
-                    
-                    newCamera.save()
-                }
-
+                cams.forEach { Camera.insert($0) }
                 tableView.content(Camera.getAll())
             }
         }
@@ -49,22 +36,12 @@ class ViewController: UIViewController {
         if Door.getAll().isEmpty {
             fetcher.fetchDoors { result in
                 guard let doors = result?.getData() else { return }
-                
-                doors.forEach { door in
-                    let newDoor = Door()
-                    
-                    newDoor.name = door.name
-                    newDoor.room = door.room
-                    newDoor.favorites = door.favorites
-                    newDoor.snapshot = door.snapshot
-                    newDoor.id = door.id
-                    newDoor.locked = true
-                    
-                    newDoor.save()
-                }
+                doors.forEach { Door.insert($0)}
             }
         }
     }
+    
+    // MARK: - Actions
 
     @IBAction func didTapCameras(_ sender: Any) {
         guard tableView.currentTypeItems != .cameras else { return }

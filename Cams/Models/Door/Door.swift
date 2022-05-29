@@ -37,4 +37,17 @@ final class Door: BaseObject, Favorites, Name {
     override class func primaryKey() -> String? {
         "id"
     }
+    
+    static func insert(_ data: DoorModel) {
+        let door = Door()
+
+        door.name = data.name
+        door.room = data.room
+        door.favorites = data.favorites
+        door.snapshot = data.snapshot
+        door.id = data.id
+        door.locked = true
+        
+        door.save()
+    }
 }

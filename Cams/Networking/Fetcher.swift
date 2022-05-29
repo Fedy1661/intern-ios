@@ -13,7 +13,6 @@ final class Fetcher {
     private let doorsUrl = URL(string: "http://cars.cprogroup.ru/api/rubetek/doors/")!
     
     func fetchCameras (response: @escaping (CamerasResponse?) -> Void) {
-        print("FETCH")
         fetch(CamerasResponse.self, url: camerasUrl, response: response)
     }
     
@@ -21,7 +20,7 @@ final class Fetcher {
         fetch(DoorsResponse.self, url: doorsUrl, response: response)
     }
     
-    private func fetch<T: Decodable>(_ T: T.Type, url: URL, response: @escaping (T?) -> Void) {
+    func fetch<T: Decodable>(_ T: T.Type, url: URL, response: @escaping (T?) -> Void) {
         Service.request(url: url) { [weak self] result in
             guard let self = self else { return }
             
