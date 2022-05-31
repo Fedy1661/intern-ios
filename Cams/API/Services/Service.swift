@@ -13,7 +13,6 @@ final class Service {
         let image = Image.first(url: url.absoluteString)
         if let image = image {
             completion(image.data)
-            print("FOUNDED")
         } else {
             Service.request(url: url) { result in
                 switch result {

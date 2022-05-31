@@ -2,6 +2,15 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
+	<key>UIApplicationShortcutItems</key>
+	<array>
+		<dict>
+			<key>UIApplicationShortcutItemType</key>
+			<string></string>
+			<key>UIApplicationShortcutItemTitle</key>
+			<string>123</string>
+		</dict>
+	</array>
 	<key>NSAppTransportSecurity</key>
 	<dict>
 		<key>NSAllowsArbitraryLoads</key>
@@ -9,6 +18,8 @@
 	</dict>
 	<key>UIAppFonts</key>
 	<array>
+		<string>Circe-Regular.ttf</string>
+		<string>Circe-Bold.ttf</string>
 		<string>Circe-Regular.ttf</string>
 	</array>
 	<key>UIApplicationSceneManifest</key>

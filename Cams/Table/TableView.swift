@@ -40,24 +40,6 @@ final class TableView: UITableView, UITableViewDelegate, UITableViewDataSource {
         return refreshControl
     }
     
-    @objc private func refresh(sender: UIRefreshControl) {
-        sender.attributedTitle = NSAttributedString(string: "Загрузка..")
-        defer { sender.endRefreshing() }
-        if currentTypeItems == .cameras {
-            fetcher.fetchCameras { result in
-                guard let cams = result?.data.cameras else { return }
-                cams.forEach { Camera.insert($0) }
-                self.content(Camera.getAll())
-            }
-        } else {
-            fetcher.fetchDoors { result in
-                guard let doors = result?.getData() else { return }
-                doors.forEach { Door.insert($0) }
-                self.content(Door.getAll())
-            }
-        }
-    }
-    
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
         setup()
@@ -71,6 +53,26 @@ final class TableView: UITableView, UITableViewDelegate, UITableViewDataSource {
         content(Camera.getAll())
     }
     
+    @objc private func refresh(sender: UIRefreshControl) {
+        sender.attributedTitle = NSAttributedString(string: "Загрузка..")
+        defer { sender.endRefreshing() }
+        
+        switch currentTypeItems {
+        case .cameras:
+            fetcher.fetchCameras { result in
+                guard let cams = result?.data.cameras else { return }
+                cams.forEach { Camera.insert($0) }
+                self.content(Camera.getAll())
+            }
+        case .doors:
+            fetcher.fetchDoors { result in
+                guard let doors = result?.getData() else { return }
+                doors.forEach { Door.insert($0) }
+                self.content(Door.getAll())
+            }
+        }
+    }
+    
     func content(_ data: [Object]) {
         if !notificationToken.isEmpty { notificationToken.removeAll() }
         
@@ -79,7 +81,7 @@ final class TableView: UITableView, UITableViewDelegate, UITableViewDataSource {
             
             let indentifier: String = {
                 if item is Camera { return CamCell.identifier }
-                if let door = item as? Door, door.snapshot != nil {
+                if let door = item as? Door, let _ = door.snapshot {
                     return DoorphoneCell.identifier
                 }
                 return EntranceCell.identifier
@@ -92,67 +94,6 @@ final class TableView: UITableView, UITableViewDelegate, UITableViewDataSource {
         }
         
         reloadData()
-    }
-    
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        items.count
-    }
-    
-    func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-        "."
-    }
-    
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let item = items[indexPath.row]
-        let cell = tableView.dequeueReusableCell(withIdentifier: item.identifier, for: indexPath)
-        
-        if let cell = cell as? CellProtocol { cell.fill(item.data) }
-        
-        notificationToken.append(item.data.observe({ change in
-            self.observe(change: change, cell: cell)
-        }))
-        
-        return cell
-    }
-    
-    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        deselectRow(at: indexPath, animated: true)
-        let k = UIStoryboard(name: "Main", bundle: .main).instantiateViewController(withIdentifier: "second.screen") as! DoorViewController
-        guard let item = self.items[indexPath.row].data as? Door else { return }
-        
-        k.locked = item.locked
-        k.callback[.open] = { item.toggleLock() }
-        k.callback[.delete] = { item.delete() }
-        
-        self.window?.rootViewController?.present(k, animated: true)
-    }
-    
-    func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
-        let cell = self.cellForRow(at: indexPath)
-        let toggleFavoriteAction = UIContextualAction(style: .destructive, title:  "", handler: { (_, _, success: (Bool) -> Void) in
-            guard let item = self.items[indexPath.row].data as? Favorites else { return }
-            guard let cell = cell as? FavoriteCell else { return }
-            item.toggleFavorite()
-            cell.favorite.isHidden = !cell.favorite.isHidden
-            success(true)
-        })
-        
-        let editNameAction = UIContextualAction(style: .destructive, title:  "", handler: { (ac:UIContextualAction, view:UIView, success:(Bool) -> Void) in
-            guard let item = self.items[indexPath.row].data as? Name else { return }
-            self.pushEditNameAlert(item)
-            success(true)
-        })
-        
-        toggleFavoriteAction.backgroundColor = UIColor(named: "backgroundColor")
-        editNameAction.backgroundColor = UIColor(named: "backgroundColor")
-        
-        toggleFavoriteAction.image = UIImage(named: "starSwipe")
-        editNameAction.image = UIImage(named: "edit")
-        
-        var actions: [UIContextualAction] = [editNameAction]
-        if cell is FavoriteCell { actions.insert(toggleFavoriteAction, at: 0)}
-        
-        return UISwipeActionsConfiguration(actions: actions)
     }
     
     // MARK: - Observer
@@ -176,25 +117,70 @@ final class TableView: UITableView, UITableViewDelegate, UITableViewDataSource {
         }
     }
     
-    // MARK: -  Alerts
+    // MARK: - DataSource
     
-    func pushEditNameAlert(_ item: Name) {
-        let alertController = UIAlertController(title: "Изменить название", message: "Введите название", preferredStyle: .alert)
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        items.count
+    }
+    
+    func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+        "."
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let item = items[indexPath.row]
+        let cell = tableView.dequeueReusableCell(withIdentifier: item.identifier, for: indexPath)
         
-        alertController.addTextField { nameField in
-            nameField.placeholder = "Введите название"
-            nameField.text = item.name
-        }
+        if let cell = cell as? CellProtocol { cell.fill(item.data) }
         
-        let save = UIAlertAction(title: "Сохранить", style: .default) { _ in
-            guard let name = alertController.textFields?.first?.text else { return }
-            item.update(name: name)
-        }
-        let cancel = UIAlertAction(title: "Отменить", style: .cancel)
+        notificationToken.append(item.data.observe({ change in
+            self.observe(change: change, cell: cell)
+        }))
         
-        alertController.addAction(save)
-        alertController.addAction(cancel)
+        return cell
+    }
+    
+    // MARK: - Delegate
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        deselectRow(at: indexPath, animated: true)
+        let k = UIStoryboard(name: "Main", bundle: .main).instantiateViewController(withIdentifier: "second.screen") as! DoorViewController
+        guard let item = self.items[indexPath.row].data as? Door else { return }
         
-        self.window?.rootViewController?.present(alertController, animated: true)
+        k.locked = item.locked
+        k.callback[.open] = { item.toggleLock() }
+        k.callback[.delete] = { item.delete() }
+        
+        self.window?.rootViewController?.present(k, animated: true)
+    }
+    
+    func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
+        let cell = self.cellForRow(at: indexPath)
+        let toggleFavoriteAction = UIContextualAction(style: .destructive, title:  "", handler: { (_, _, success: (Bool) -> Void) in
+            guard let item = self.items[indexPath.row].data as? Favorites else { return }
+            guard let cell = cell as? FavoriteCell else { return }
+            
+            item.toggleFavorite()
+            cell.favorite.isHidden = !cell.favorite.isHidden
+            success(true)
+        })
+        
+        let editNameAction = UIContextualAction(style: .destructive, title:  "", handler: { (ac:UIContextualAction, view:UIView, success:(Bool) -> Void) in
+            guard let item = self.items[indexPath.row].data as? Name else { return }
+            
+            Alerts.pushEditNameAlert(vc: self.window!.rootViewController!, item)
+            success(true)
+        })
+        
+        toggleFavoriteAction.backgroundColor = UIColor(named: "backgroundColor")
+        editNameAction.backgroundColor = UIColor(named: "backgroundColor")
+        
+        toggleFavoriteAction.image = UIImage(named: "starSwipe")
+        editNameAction.image = UIImage(named: "edit")
+        
+        var actions: [UIContextualAction] = [editNameAction]
+        if cell is FavoriteCell { actions.insert(toggleFavoriteAction, at: 0)}
+        
+        return UISwipeActionsConfiguration(actions: actions)
     }
 }

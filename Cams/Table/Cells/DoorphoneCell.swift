@@ -19,7 +19,7 @@ class DoorphoneCell: UITableViewCell, CellProtocol, FavoriteCell {
     
     func fill(_ data: Any) {
         guard let data = data as? Door else { return }
-        print(data)
+
         titleLabel.text = data.name
         subTitleLabel.text = data.room
         favorite.isHidden = !data.favorites

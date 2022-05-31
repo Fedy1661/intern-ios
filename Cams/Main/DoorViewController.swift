@@ -33,5 +33,9 @@ class DoorViewController: ViewController {
         dismiss(animated: true)
     }
     
+    @IBAction func close(_ sender: Any) {
+        dismiss(animated: true)
+    }
+    
 }
 

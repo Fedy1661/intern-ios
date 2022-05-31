@@ -30,6 +30,7 @@
 		CE696AE5283E4BDA003AA970 /* CamCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE696AE4283E4BDA003AA970 /* CamCell.swift */; };
 		CE696AE7283E4C08003AA970 /* DoorphoneCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE696AE6283E4C08003AA970 /* DoorphoneCell.swift */; };
 		CE696AEA283E4C4A003AA970 /* EntranceCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE696AE9283E4C4A003AA970 /* EntranceCell.swift */; };
+		CED22AF2284501B6009FDCEF /* Alerts.swift in Sources */ = {isa = PBXBuildFile; fileRef = CED22AF1284501B6009FDCEF /* Alerts.swift */; };
 		CEFF918A283E7A1B00C2F6B4 /* Realm in Frameworks */ = {isa = PBXBuildFile; productRef = CEFF9189283E7A1B00C2F6B4 /* Realm */; };
 		CEFF918C283E7A1B00C2F6B4 /* RealmSwift in Frameworks */ = {isa = PBXBuildFile; productRef = CEFF918B283E7A1B00C2F6B4 /* RealmSwift */; };
 /* End PBXBuildFile section */
@@ -55,11 +56,12 @@
 		21FF6665283B441600FE7C25 /* Door.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Door.swift; sourceTree = "<group>"; };
 		21FF6667283B464400FE7C25 /* Fetcher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Fetcher.swift; sourceTree = "<group>"; };
 		CE1314C728411BF400C3DE4D /* SceneDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		CE1845C4283BCBD500F0194F /* TableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = TableView.swift; path = Networking/TableView.swift; sourceTree = "<group>"; };
+		CE1845C4283BCBD500F0194F /* TableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableView.swift; sourceTree = "<group>"; };
 		CE247475283FAE4F00ECF465 /* RealmExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmExtension.swift; sourceTree = "<group>"; };
 		CE696AE4283E4BDA003AA970 /* CamCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CamCell.swift; sourceTree = "<group>"; };
 		CE696AE6283E4C08003AA970 /* DoorphoneCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DoorphoneCell.swift; sourceTree = "<group>"; };
 		CE696AE9283E4C4A003AA970 /* EntranceCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EntranceCell.swift; sourceTree = "<group>"; };
+		CED22AF1284501B6009FDCEF /* Alerts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Alerts.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -93,14 +95,61 @@
 			path = Camera;
 			sourceTree = "<group>";
 		};
-		217EEF86283B415600E60FED /* Networking */ = {
+		216F07DB2845CE1500329D69 /* Application */ = {
+			isa = PBXGroup;
+			children = (
+				21B003812839EA9300E2A1BB /* AppDelegate.swift */,
+				CE1314C728411BF400C3DE4D /* SceneDelegate.swift */,
+			);
+			path = Application;
+			sourceTree = "<group>";
+		};
+		216F07DC2845CE4000329D69 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				21B003952839EC0300E2A1BB /* Fonts */,
+				21B0038C2839EA9400E2A1BB /* LaunchScreen.storyboard */,
+				21B0038A2839EA9400E2A1BB /* Assets.xcassets */,
+				21B0038F2839EA9400E2A1BB /* Info.plist */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		216F07DD2845CF0500329D69 /* Services */ = {
 			isa = PBXGroup;
 			children = (
 				21FF6660283B423400FE7C25 /* Service.swift */,
 				21FF6667283B464400FE7C25 /* Fetcher.swift */,
+			);
+			path = Services;
+			sourceTree = "<group>";
+		};
+		216F07DE2845D0F200329D69 /* Core */ = {
+			isa = PBXGroup;
+			children = (
 				CE247475283FAE4F00ECF465 /* RealmExtension.swift */,
 			);
-			path = Networking;
+			path = Core;
+			sourceTree = "<group>";
+		};
+		216F07DF2845D1FA00329D69 /* Main */ = {
+			isa = PBXGroup;
+			children = (
+				210BA9992840938300D36609 /* DoorViewController.swift */,
+				21B003852839EA9300E2A1BB /* ViewController.swift */,
+				21123768284349D3000B75EB /* Main.storyboard */,
+				CED22AF1284501B6009FDCEF /* Alerts.swift */,
+			);
+			path = Main;
+			sourceTree = "<group>";
+		};
+		217EEF86283B415600E60FED /* API */ = {
+			isa = PBXGroup;
+			children = (
+				21FF6664283B440A00FE7C25 /* Models */,
+				216F07DD2845CF0500329D69 /* Services */,
+			);
+			path = API;
 			sourceTree = "<group>";
 		};
 		21B003752839EA9300E2A1BB = {
@@ -122,19 +171,12 @@
 		21B003802839EA9300E2A1BB /* Cams */ = {
 			isa = PBXGroup;
 			children = (
-				21B003952839EC0300E2A1BB /* Fonts */,
-				CE696AE8283E4C13003AA970 /* Cells */,
-				21FF6664283B440A00FE7C25 /* Models */,
-				217EEF86283B415600E60FED /* Networking */,
-				21B003812839EA9300E2A1BB /* AppDelegate.swift */,
-				21B003852839EA9300E2A1BB /* ViewController.swift */,
-				CE1845C4283BCBD500F0194F /* TableView.swift */,
-				210BA9992840938300D36609 /* DoorViewController.swift */,
-				CE1314C728411BF400C3DE4D /* SceneDelegate.swift */,
-				21123768284349D3000B75EB /* Main.storyboard */,
-				21B0038C2839EA9400E2A1BB /* LaunchScreen.storyboard */,
-				21B0038A2839EA9400E2A1BB /* Assets.xcassets */,
-				21B0038F2839EA9400E2A1BB /* Info.plist */,
+				217EEF86283B415600E60FED /* API */,
+				216F07DB2845CE1500329D69 /* Application */,
+				216F07DC2845CE4000329D69 /* Resources */,
+				216F07DF2845D1FA00329D69 /* Main */,
+				CED22AF32845037A009FDCEF /* Table */,
+				216F07DE2845D0F200329D69 /* Core */,
 			);
 			path = Cams;
 			sourceTree = "<group>";
@@ -168,6 +210,15 @@
 				CE696AE9283E4C4A003AA970 /* EntranceCell.swift */,
 			);
 			path = Cells;
+			sourceTree = "<group>";
+		};
+		CED22AF32845037A009FDCEF /* Table */ = {
+			isa = PBXGroup;
+			children = (
+				CE696AE8283E4C13003AA970 /* Cells */,
+				CE1845C4283BCBD500F0194F /* TableView.swift */,
+			);
+			path = Table;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -267,6 +318,7 @@
 				CE1845C5283BCBD500F0194F /* TableView.swift in Sources */,
 				211237522842319C000B75EB /* BaseObject.swift in Sources */,
 				21FF6663283B428400FE7C25 /* Camera.swift in Sources */,
+				CED22AF2284501B6009FDCEF /* Alerts.swift in Sources */,
 				210BA99A2840938300D36609 /* DoorViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -418,7 +470,7 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = H5CCX2A86G;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = Cams/Info.plist;
+				INFOPLIST_FILE = Cams/Resources/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
@@ -448,7 +500,7 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = H5CCX2A86G;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = Cams/Info.plist;
+				INFOPLIST_FILE = Cams/Resources/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
