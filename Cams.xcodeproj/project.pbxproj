@@ -24,15 +24,16 @@
 		21FF6663283B428400FE7C25 /* Camera.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21FF6662283B428400FE7C25 /* Camera.swift */; };
 		21FF6666283B441600FE7C25 /* Door.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21FF6665283B441600FE7C25 /* Door.swift */; };
 		21FF6668283B464400FE7C25 /* Fetcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21FF6667283B464400FE7C25 /* Fetcher.swift */; };
-		CE1314C828411BF400C3DE4D /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE1314C728411BF400C3DE4D /* SceneDelegate.swift */; };
+		CE17EBAC2845FD6F003221D1 /* APIType.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE17EBAB2845FD6F003221D1 /* APIType.swift */; };
+		CE17EBAE28461778003221D1 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE17EBAD28461778003221D1 /* SceneDelegate.swift */; };
 		CE1845C5283BCBD500F0194F /* TableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE1845C4283BCBD500F0194F /* TableView.swift */; };
 		CE247476283FAE4F00ECF465 /* RealmExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE247475283FAE4F00ECF465 /* RealmExtension.swift */; };
 		CE696AE5283E4BDA003AA970 /* CamCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE696AE4283E4BDA003AA970 /* CamCell.swift */; };
 		CE696AE7283E4C08003AA970 /* DoorphoneCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE696AE6283E4C08003AA970 /* DoorphoneCell.swift */; };
 		CE696AEA283E4C4A003AA970 /* EntranceCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE696AE9283E4C4A003AA970 /* EntranceCell.swift */; };
+		CE9B5FF3284633CC003C4A8C /* Realm in Frameworks */ = {isa = PBXBuildFile; productRef = CE9B5FF2284633CC003C4A8C /* Realm */; };
+		CE9B5FF5284633CC003C4A8C /* RealmSwift in Frameworks */ = {isa = PBXBuildFile; productRef = CE9B5FF4284633CC003C4A8C /* RealmSwift */; };
 		CED22AF2284501B6009FDCEF /* Alerts.swift in Sources */ = {isa = PBXBuildFile; fileRef = CED22AF1284501B6009FDCEF /* Alerts.swift */; };
-		CEFF918A283E7A1B00C2F6B4 /* Realm in Frameworks */ = {isa = PBXBuildFile; productRef = CEFF9189283E7A1B00C2F6B4 /* Realm */; };
-		CEFF918C283E7A1B00C2F6B4 /* RealmSwift in Frameworks */ = {isa = PBXBuildFile; productRef = CEFF918B283E7A1B00C2F6B4 /* RealmSwift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -55,7 +56,8 @@
 		21FF6662283B428400FE7C25 /* Camera.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Camera.swift; sourceTree = "<group>"; };
 		21FF6665283B441600FE7C25 /* Door.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Door.swift; sourceTree = "<group>"; };
 		21FF6667283B464400FE7C25 /* Fetcher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Fetcher.swift; sourceTree = "<group>"; };
-		CE1314C728411BF400C3DE4D /* SceneDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
+		CE17EBAB2845FD6F003221D1 /* APIType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIType.swift; sourceTree = "<group>"; };
+		CE17EBAD28461778003221D1 /* SceneDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		CE1845C4283BCBD500F0194F /* TableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableView.swift; sourceTree = "<group>"; };
 		CE247475283FAE4F00ECF465 /* RealmExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmExtension.swift; sourceTree = "<group>"; };
 		CE696AE4283E4BDA003AA970 /* CamCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CamCell.swift; sourceTree = "<group>"; };
@@ -69,8 +71,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				CEFF918C283E7A1B00C2F6B4 /* RealmSwift in Frameworks */,
-				CEFF918A283E7A1B00C2F6B4 /* Realm in Frameworks */,
+				CE9B5FF5284633CC003C4A8C /* RealmSwift in Frameworks */,
+				CE9B5FF3284633CC003C4A8C /* Realm in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -99,7 +101,7 @@
 			isa = PBXGroup;
 			children = (
 				21B003812839EA9300E2A1BB /* AppDelegate.swift */,
-				CE1314C728411BF400C3DE4D /* SceneDelegate.swift */,
+				CE17EBAD28461778003221D1 /* SceneDelegate.swift */,
 			);
 			path = Application;
 			sourceTree = "<group>";
@@ -148,6 +150,7 @@
 			children = (
 				21FF6664283B440A00FE7C25 /* Models */,
 				216F07DD2845CF0500329D69 /* Services */,
+				CE17EBAB2845FD6F003221D1 /* APIType.swift */,
 			);
 			path = API;
 			sourceTree = "<group>";
@@ -238,8 +241,8 @@
 			);
 			name = Cams;
 			packageProductDependencies = (
-				CEFF9189283E7A1B00C2F6B4 /* Realm */,
-				CEFF918B283E7A1B00C2F6B4 /* RealmSwift */,
+				CE9B5FF2284633CC003C4A8C /* Realm */,
+				CE9B5FF4284633CC003C4A8C /* RealmSwift */,
 			);
 			productName = Cams;
 			productReference = 21B0037E2839EA9300E2A1BB /* Cams.app */;
@@ -270,7 +273,7 @@
 			);
 			mainGroup = 21B003752839EA9300E2A1BB;
 			packageReferences = (
-				CEFF9188283E7A1B00C2F6B4 /* XCRemoteSwiftPackageReference "realm-swift" */,
+				CE9B5FF1284633CC003C4A8C /* XCRemoteSwiftPackageReference "realm-swift" */,
 			);
 			productRefGroup = 21B0037F2839EA9300E2A1BB /* Products */;
 			projectDirPath = "";
@@ -303,6 +306,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				21FF6668283B464400FE7C25 /* Fetcher.swift in Sources */,
+				CE17EBAC2845FD6F003221D1 /* APIType.swift in Sources */,
 				21B003862839EA9300E2A1BB /* ViewController.swift in Sources */,
 				CE696AE5283E4BDA003AA970 /* CamCell.swift in Sources */,
 				21FF6661283B423400FE7C25 /* Service.swift in Sources */,
@@ -311,13 +315,13 @@
 				CE247476283FAE4F00ECF465 /* RealmExtension.swift in Sources */,
 				CE696AEA283E4C4A003AA970 /* EntranceCell.swift in Sources */,
 				2112375828423402000B75EB /* CameraActions.swift in Sources */,
-				CE1314C828411BF400C3DE4D /* SceneDelegate.swift in Sources */,
 				CE696AE7283E4C08003AA970 /* DoorphoneCell.swift in Sources */,
 				2112375A2843176C000B75EB /* Image.swift in Sources */,
 				2112375528423394000B75EB /* DoorActions.swift in Sources */,
 				CE1845C5283BCBD500F0194F /* TableView.swift in Sources */,
 				211237522842319C000B75EB /* BaseObject.swift in Sources */,
 				21FF6663283B428400FE7C25 /* Camera.swift in Sources */,
+				CE17EBAE28461778003221D1 /* SceneDelegate.swift in Sources */,
 				CED22AF2284501B6009FDCEF /* Alerts.swift in Sources */,
 				210BA99A2840938300D36609 /* DoorViewController.swift in Sources */,
 			);
@@ -545,7 +549,7 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
-		CEFF9188283E7A1B00C2F6B4 /* XCRemoteSwiftPackageReference "realm-swift" */ = {
+		CE9B5FF1284633CC003C4A8C /* XCRemoteSwiftPackageReference "realm-swift" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/realm/realm-swift.git";
 			requirement = {
@@ -556,14 +560,14 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
-		CEFF9189283E7A1B00C2F6B4 /* Realm */ = {
+		CE9B5FF2284633CC003C4A8C /* Realm */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = CEFF9188283E7A1B00C2F6B4 /* XCRemoteSwiftPackageReference "realm-swift" */;
+			package = CE9B5FF1284633CC003C4A8C /* XCRemoteSwiftPackageReference "realm-swift" */;
 			productName = Realm;
 		};
-		CEFF918B283E7A1B00C2F6B4 /* RealmSwift */ = {
+		CE9B5FF4284633CC003C4A8C /* RealmSwift */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = CEFF9188283E7A1B00C2F6B4 /* XCRemoteSwiftPackageReference "realm-swift" */;
+			package = CE9B5FF1284633CC003C4A8C /* XCRemoteSwiftPackageReference "realm-swift" */;
 			productName = RealmSwift;
 		};
 /* End XCSwiftPackageProductDependency section */

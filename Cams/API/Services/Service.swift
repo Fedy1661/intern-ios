@@ -13,22 +13,22 @@ final class Service {
         let image = Image.first(url: url.absoluteString)
         if let image = image {
             completion(image.data)
-        } else {
-            Service.request(url: url) { result in
-                switch result {
-                case .success(let data):
-                    let image = Image(url: url.absoluteString, data: data)
-                    image.save()
-                    completion(data)
-                case .failure(_):
-                    print("Failed to load image")
-                }
+            return
+        }
+        
+        Service.request(url: URLRequest(url: url)) { result in
+            switch result {
+            case .success(let data):
+                let image = Image(url: url.absoluteString, data: data)
+                image.save()
+                completion(data)
+            case .failure(_):
+                print("Failed to load image")
             }
         }
     }
     
-    static func request(url: URL, completion: @escaping (Result<Data, Error>) -> Void) {
-        print(url.absoluteString)
+    static func request(url: URLRequest, completion: @escaping (Result<Data, Error>) -> Void) {
         URLSession.shared.dataTask(with: url) { data, response, error in
             DispatchQueue.main.async {
                 if let error = error {

@@ -395,7 +395,7 @@
                                         </subviews>
                                     </stackView>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="vIO-wI-5ZT">
-                                        <rect key="frame" x="0.0" y="148" width="475" height="2"/>
+                                        <rect key="frame" x="0.0" y="148" width="187.66666666666666" height="2"/>
                                         <color key="backgroundColor" red="0.011764705882352941" green="0.66274509803921566" blue="0.95686274509803915" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                     </view>
                                 </subviews>
@@ -403,7 +403,7 @@
                                 <constraints>
                                     <constraint firstAttribute="bottom" secondItem="vIO-wI-5ZT" secondAttribute="bottom" id="1RF-P5-uzS"/>
                                     <constraint firstItem="vIO-wI-5ZT" firstAttribute="leading" secondItem="DSy-fA-2hm" secondAttribute="leading" id="6gA-8Q-JsC"/>
-                                    <constraint firstItem="vIO-wI-5ZT" firstAttribute="width" secondItem="wZQ-2G-Fi6" secondAttribute="width" constant="100" id="8ip-wf-QN5"/>
+                                    <constraint firstItem="vIO-wI-5ZT" firstAttribute="width" secondItem="wZQ-2G-Fi6" secondAttribute="width" multiplier="0.5" id="8ip-wf-QN5"/>
                                     <constraint firstAttribute="bottom" secondItem="DSy-fA-2hm" secondAttribute="bottom" id="LVS-dL-Dd0"/>
                                     <constraint firstItem="DSy-fA-2hm" firstAttribute="top" secondItem="wZQ-2G-Fi6" secondAttribute="top" constant="106" id="S54-fd-NZW"/>
                                     <constraint firstItem="DSy-fA-2hm" firstAttribute="top" secondItem="xdI-LX-Hso" secondAttribute="bottom" constant="14" id="ZJY-55-Lyx"/>

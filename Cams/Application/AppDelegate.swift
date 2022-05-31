@@ -16,8 +16,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         window = .init(frame: UIScreen.main.bounds)
         window?.makeKeyAndVisible()
         window?.becomeFirstResponder()
-        
-        let k = UIStoryboard(name: "Main", bundle: .main).instantiateViewController(withIdentifier: "main.screen")
+        let storyboard = UIStoryboard(name: "Main", bundle: .main)
+        let k = storyboard.instantiateViewController(withIdentifier: "main.screen")
         
         window?.rootViewController = k
         
@@ -37,7 +37,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             userInfo: ["TabIndex": 2 as NSSecureCoding]
         )
         
-        // Update the application providing the initial 'dynamic' shortcut items.
         application.shortcutItems = [cameraShortcut, doorShortcut]
         
         return true

@@ -13,14 +13,14 @@ final class Fetcher {
     private let doorsUrl = URL(string: "http://cars.cprogroup.ru/api/rubetek/doors/")!
     
     func fetchCameras (response: @escaping (CamerasResponse?) -> Void) {
-        fetch(CamerasResponse.self, url: camerasUrl, response: response)
+        fetch(CamerasResponse.self, url: APIType.getCameras.request, response: response)
     }
     
     func fetchDoors (response: @escaping (DoorsResponse?) -> Void) {
-        fetch(DoorsResponse.self, url: doorsUrl, response: response)
+        fetch(DoorsResponse.self, url: APIType.getDoors.request, response: response)
     }
     
-    func fetch<T: Decodable>(_ T: T.Type, url: URL, response: @escaping (T?) -> Void) {
+    func fetch<T: Decodable>(_ T: T.Type, url: URLRequest, response: @escaping (T?) -> Void) {
         Service.request(url: url) { [weak self] result in
             guard let self = self else { return }
             

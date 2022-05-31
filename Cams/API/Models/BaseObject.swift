@@ -20,11 +20,13 @@ protocol Name {
     func update(name: String)
 }
 
+typealias Objects = [Object]
+
 @objcMembers
 class BaseObject: Object {
     dynamic var createdAt = Date()
     
-    static func getAll() -> [Object] {
+    static func getAll() -> Objects {
         Array(Realm.app.objects(self))
     }
 }
