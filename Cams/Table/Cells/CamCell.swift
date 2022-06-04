@@ -13,6 +13,7 @@ protocol FavoriteCell {
 
 class CamCell: UITableViewCell, CellProtocol, FavoriteCell {
     let fetcher = Fetcher()
+    
     static let identifier = "CamCell"
     
     @IBOutlet weak var titleLabel: UILabel!

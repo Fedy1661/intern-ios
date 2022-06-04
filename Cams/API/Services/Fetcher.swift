@@ -9,9 +9,6 @@ import Foundation
 
 final class Fetcher {
     
-    private let camerasUrl = URL(string: "http://cars.cprogroup.ru/api/rubetek/cameras/")!
-    private let doorsUrl = URL(string: "http://cars.cprogroup.ru/api/rubetek/doors/")!
-    
     func fetchCameras (response: @escaping (CamerasResponse?) -> Void) {
         fetch(CamerasResponse.self, url: APIType.getCameras.request, response: response)
     }
@@ -22,10 +19,7 @@ final class Fetcher {
     
     func fetchImage(url: URL,  completion: @escaping (Data) -> Void) {
         let image = Image.first(url: url.absoluteString)
-        if let image = image {
-            completion(image.data)
-            return
-        }
+        if let image = image { return completion(image.data) }
         
         Service.request(url: URLRequest(url: url)) { result in
             switch result {
