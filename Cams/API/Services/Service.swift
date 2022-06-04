@@ -9,25 +9,6 @@ import Foundation
 import RealmSwift
 
 final class Service {
-    static func loadImage(url: URL,  completion: @escaping (Data) -> Void) {
-        let image = Image.first(url: url.absoluteString)
-        if let image = image {
-            completion(image.data)
-            return
-        }
-        
-        Service.request(url: URLRequest(url: url)) { result in
-            switch result {
-            case .success(let data):
-                let image = Image(url: url.absoluteString, data: data)
-                image.save()
-                completion(data)
-            case .failure(_):
-                print("Failed to load image")
-            }
-        }
-    }
-    
     static func request(url: URLRequest, completion: @escaping (Result<Data, Error>) -> Void) {
         URLSession.shared.dataTask(with: url) { data, response, error in
             DispatchQueue.main.async {

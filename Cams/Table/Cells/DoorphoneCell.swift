@@ -8,6 +8,8 @@
 import UIKit
 
 class DoorphoneCell: UITableViewCell, CellProtocol, FavoriteCell {
+    let fetcher = Fetcher()
+    
     static let identifier = "DoorphoneCell"
     
     @IBOutlet weak var titleLabel: UILabel!
@@ -27,10 +29,10 @@ class DoorphoneCell: UITableViewCell, CellProtocol, FavoriteCell {
         
         guard let url = URL(string: data.snapshot ?? "") else { return }
         
-        Service.loadImage(url: url) { [weak self] dataImage in
+        fetcher.fetchImage(url: url, completion: { [weak self] dataImage in
             guard let self = self else { return }
             
             self.snapshotImage.image = UIImage(data: dataImage)
-        }
+        })
     }
 }
