@@ -17,6 +17,7 @@
 		21123766284349D3000B75EB /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 21123768284349D3000B75EB /* Main.storyboard */; };
 		213BCD45284B18B100297699 /* Realm in Frameworks */ = {isa = PBXBuildFile; productRef = 213BCD44284B18B100297699 /* Realm */; };
 		213BCD47284B18B100297699 /* RealmSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 213BCD46284B18B100297699 /* RealmSwift */; };
+		21549C7F284D99450095B81B /* Decoder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21549C7E284D99450095B81B /* Decoder.swift */; };
 		21B003822839EA9300E2A1BB /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21B003812839EA9300E2A1BB /* AppDelegate.swift */; };
 		21B003862839EA9300E2A1BB /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21B003852839EA9300E2A1BB /* ViewController.swift */; };
 		21B0038B2839EA9400E2A1BB /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 21B0038A2839EA9400E2A1BB /* Assets.xcassets */; };
@@ -46,6 +47,7 @@
 		211237592843176C000B75EB /* Image.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Image.swift; sourceTree = "<group>"; };
 		2112376A28434A1E000B75EB /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		2112376B28434A1E000B75EB /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		21549C7E284D99450095B81B /* Decoder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Decoder.swift; sourceTree = "<group>"; };
 		21B0037E2839EA9300E2A1BB /* Cams.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Cams.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		21B003812839EA9300E2A1BB /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		21B003852839EA9300E2A1BB /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -122,6 +124,7 @@
 			children = (
 				21FF6660283B423400FE7C25 /* Service.swift */,
 				21FF6667283B464400FE7C25 /* Fetcher.swift */,
+				21549C7E284D99450095B81B /* Decoder.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -323,6 +326,7 @@
 				21FF6663283B428400FE7C25 /* Camera.swift in Sources */,
 				CE17EBAE28461778003221D1 /* SceneDelegate.swift in Sources */,
 				CED22AF2284501B6009FDCEF /* Alerts.swift in Sources */,
+				21549C7F284D99450095B81B /* Decoder.swift in Sources */,
 				210BA99A2840938300D36609 /* DoorViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -34,25 +34,14 @@ final class Fetcher {
     }
     
     func fetch<T: Decodable>(_ T: T.Type, url: URLRequest, response: @escaping (T?) -> Void) {
-        Service.request(url: url) { [weak self] result in
-            guard let self = self else { return }
-            
+        Service.request(url: url) { result in
             switch result {
             case .success(let data):
-                response(self.decode(T.self, data: data))
+                response(Decoder.decode(T.self, data: data))
             case .failure(let error):
                 print(error)
                 response(nil)
             }
-        }
-    }
-    
-    private func decode<T: Decodable>(_ T: T.Type, data: Data) -> T? {
-        do {
-            return try JSONDecoder().decode(T.self, from: data)
-        } catch let jsonError {
-            print(jsonError)
-            return nil
         }
     }
 }
